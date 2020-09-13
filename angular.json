@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "taskangular"
+    }
+  },
+  "defaultProject": "taskangular",
+  "cli": {
+    "analytics": "bca36317-12dc-4001-9fc0-da1c096291e7"
+  }
 }
