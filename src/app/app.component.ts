@@ -8,4 +8,11 @@ import { Component,AfterViewInit, Renderer2 } from '@angular/core';
 export class AppComponent {
   [x: string]: any;
   title = 'taskangular';
+  // AfterViewInit(){
+  //   this.loadScripts();
+  // }
+  // public loadScripts() {
+  //   this.renderExternalScript('assets/js/functions.js').onload = () => {
+  //   }
+  // }
 }
