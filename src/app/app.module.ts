@@ -18,7 +18,8 @@ const approute : Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(approute),
-    ShareModule
+    ShareModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],
