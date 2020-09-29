@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './user/main/main.component';
 import {Routes, RouterModule} from '@angular/router';
 import {ShareModule} from './user/share/share.module';
+import {AccordionModule} from 'primeng/accordion';
 const approute: Routes = [
   {
     path: '',
@@ -23,7 +24,8 @@ const approute: Routes = [
     BrowserModule,
     RouterModule.forRoot(approute),
     ShareModule,
-    RouterModule
+    RouterModule,
+    AccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
