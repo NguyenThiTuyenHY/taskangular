@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,AfterViewInit, Renderer2} from '@angular/core';
 
 @Component({
   selector: 'app-mainadmin',
@@ -11,5 +11,4 @@ export class MainadminComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

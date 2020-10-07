@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-detailproduct',
@@ -7,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailproductComponent implements OnInit {
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
   }
-
 }
