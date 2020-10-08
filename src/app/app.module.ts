@@ -5,6 +5,7 @@ import { MainComponent } from './user/main/main.component';
 import {Routes, RouterModule} from '@angular/router';
 import {ShareModule} from './user/share/share.module';
 import {AccordionModule} from 'primeng/accordion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const approute: Routes = [
   {
     path: '',
@@ -25,7 +26,8 @@ const approute: Routes = [
     RouterModule.forRoot(approute),
     ShareModule,
     RouterModule,
-    AccordionModule
+    AccordionModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

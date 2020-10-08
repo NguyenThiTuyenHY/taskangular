@@ -3,26 +3,20 @@
         <div class="container">
             <div class="header-top-inner">
                 <ul id="menu-top-left-menu" class="kobolg-nav top-bar-menu">
-                    <li id="menu-item-864"
-                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-864"><a
-                            class="kobolg-menu-item-title" title="Store Direction"
-                            href="#"><span class="icon flaticon-placeholder"></span>Hướng dẫn</a></li>
-                    <li id="menu-item-865"
-                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-865"><a
-                            class="kobolg-menu-item-title" title="Order Tracking"
-                            href="#"><span class="icon flaticon-box"></span>Theo dõi đơn hàng</a></li>
+                    <li id="menu-item-864" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-864"><a class="kobolg-menu-item-title" title="Store Direction" href="#"><span class="icon flaticon-placeholder"></span>Hướng dẫn</a></li>
+                    <li id="menu-item-865" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-865"><a class="kobolg-menu-item-title" title="Order Tracking" href="#"><span class="icon flaticon-box"></span>Theo dõi đơn hàng</a></li>
                 </ul>
                 <div class="kobolg-nav top-bar-menu right">
                     <ul class="wpml-menu">
                         <li class="menu-item">
                             <div class="wcml-dropdown product wcml_currency_switcher">
-                                <a href="">Đăng nhập</a>
+                                <a href="#" [routerLink]="['/dangnhap']">Đăng nhập</a>
                             </div>
                         </li>
                         <li>/</li>
                         <li class="menu-item">
                             <div class="wcml-dropdown product wcml_currency_switcher">
-                                <a href=""> &nbsp;&nbsp;Đăng ký</a>
+                                <a href="#" [routerLink]="['/dangky']"> &nbsp;&nbsp;Đăng ký</a>
                             </div>
                         </li>
                     </ul>
@@ -42,26 +36,22 @@
                         </a>
                     </div>
                     <div class="header-logo">
-                        <a href="#" routerLink="/"><img alt="Kobolg" src="assets/images/logo.png"
-                            class="logo"></a></div>
+                        <a href="#" [routerLink]="['/trangchu']"><img alt="Kobolg" src="assets/images/logo.png" class="logo"></a>
+                    </div>
                 </div>
                 <div class="header-search-mid">
                     <div class="header-search">
                         <div class="block-search">
-                            <form role="search" method="get"
-                                  class="form-search block-search-form kobolg-live-search-form">
+                            <form role="search" method="get" class="form-search block-search-form kobolg-live-search-form">
                                 <div class="form-content search-box results-search">
                                     <div class="inner">
-                                        <input autocomplete="off" class="searchfield txt-livesearch input" name="s"
-                                               value="" placeholder="Tìm kiếm tại đây ..." type="text">
+                                        <input autocomplete="off" class="searchfield txt-livesearch input" name="s" value="" placeholder="Tìm kiếm tại đây ..." type="text">
                                     </div>
                                 </div>
                                 <input name="post_type" value="product" type="hidden">
                                 <input name="taxonomy" value="product_cat" type="hidden">
                                 <div class="category">
-                                    <select title="product_cat" name="product_cat" id="1771262470"
-                                            class="category-search-option"
-                                            tabindex="-1" style="display: none;">
+                                    <select title="product_cat" name="product_cat" id="1771262470" class="category-search-option" tabindex="-1" style="display: none;">
                                         <option value="0">Tất cả danh mục</option>
                                         <option class="level-0" value="light">Camera</option>
                                         <option class="level-0" value="chair">Accessories</option>
@@ -76,7 +66,8 @@
                                 <button type="submit" class="btn-submit">
                                     <span class="flaticon-search"></span>
                                 </button>
-                            </form><!-- block search -->
+                            </form>
+                            <!-- block search -->
                         </div>
                     </div>
                 </div>
@@ -123,35 +114,32 @@
                                             <li class="kobolg-mini-cart-item mini_cart_item">
                                                 <a href="#" class="remove remove_from_cart_button">×</a>
                                                 <a href="#">
-                                                    <img src="assets/images/apro134-1-600x778.jpg"
-                                                         class="attachment-kobolg_thumbnail size-kobolg_thumbnail"
-                                                         alt="img" width="600" height="778">T-shirt with skirt – Pink&nbsp;
+                                                    <img src="assets/images/apro134-1-600x778.jpg" class="attachment-kobolg_thumbnail size-kobolg_thumbnail" alt="img" width="600" height="778">T-shirt with skirt – Pink&nbsp;
                                                 </a>
                                                 <span class="quantity">1 × <span
                                                         class="kobolg-Price-amount amount"><span
-                                                        class="kobolg-Price-currencySymbol">$</span>150.00</span></span>
+                                                        class="kobolg-Price-currencySymbol">$</span>150.00</span>
+                                                </span>
                                             </li>
                                             <li class="kobolg-mini-cart-item mini_cart_item">
                                                 <a href="#" class="remove remove_from_cart_button">×</a>
                                                 <a href="#">
-                                                    <img src="assets/images/apro1113-600x778.jpg"
-                                                         class="attachment-kobolg_thumbnail size-kobolg_thumbnail"
-                                                         alt="img" width="600" height="778">Red Consoles&nbsp;
+                                                    <img src="assets/images/apro1113-600x778.jpg" class="attachment-kobolg_thumbnail size-kobolg_thumbnail" alt="img" width="600" height="778">Red Consoles&nbsp;
                                                 </a>
                                                 <span class="quantity">1 × <span
                                                         class="kobolg-Price-amount amount"><span
-                                                        class="kobolg-Price-currencySymbol">$</span>129.00</span></span>
+                                                        class="kobolg-Price-currencySymbol">$</span>129.00</span>
+                                                </span>
                                             </li>
                                             <li class="kobolg-mini-cart-item mini_cart_item">
                                                 <a href="#" class="remove remove_from_cart_button">×</a>
                                                 <a href="#">
-                                                    <img src="assets/images/apro201-1-600x778.jpg"
-                                                         class="attachment-kobolg_thumbnail size-kobolg_thumbnail"
-                                                         alt="img" width="600" height="778">Smart Monitor&nbsp;
+                                                    <img src="assets/images/apro201-1-600x778.jpg" class="attachment-kobolg_thumbnail size-kobolg_thumbnail" alt="img" width="600" height="778">Smart Monitor&nbsp;
                                                 </a>
                                                 <span class="quantity">1 × <span
                                                         class="kobolg-Price-amount amount"><span
-                                                        class="kobolg-Price-currencySymbol">$</span>139.00</span></span>
+                                                        class="kobolg-Price-currencySymbol">$</span>139.00</span>
+                                                </span>
                                             </li>
                                         </ul>
                                         <p class="kobolg-mini-cart__total total"><strong>Tổng tiền:</strong>
@@ -159,8 +147,8 @@
                                                     class="kobolg-Price-currencySymbol">$</span>418.00</span>
                                         </p>
                                         <p class="kobolg-mini-cart__buttons buttons">
-                                            <a href="cart.html" class="button kobolg-forward">Giỏ hàng</a>
-                                            <a href="checkout.html" class="button checkout kobolg-forward">Đặt hàng</a>
+                                            <a href="#" [routerLink]="['/giohang/sanpham']" class="button kobolg-forward">Giỏ hàng</a>
+                                            <a href="#" [routerLink]="['/giohang/dathang']" class="button checkout kobolg-forward">Đặt hàng</a>
                                         </p>
                                     </div>
                                 </div>
@@ -177,65 +165,43 @@
                 <div class="container">
                     <div class="kobolg-menu-wapper"></div>
                     <div class="header-nav-inner">
-                        <div data-items="8"
-                             class="vertical-wrapper block-nav-category has-vertical-menu show-button-all">
+                        <div data-items="8" class="vertical-wrapper block-nav-category has-vertical-menu show-button-all">
                             <div class="block-title">
-                    <span class="before">
+                                <span class="before">
                         <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
+                                <span></span>
+                                <span></span>
+                                </span>
                                 <span class="text-title">Mua sắm theo danh mục</span>
                             </div>
                             <div class="block-content verticalmenu-content">
                                 <ul id="menu-vertical-menu" class="azeroth-nav vertical-menu default">
-                                    <li id="menu-item-886"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-886"><a
-                                            class="azeroth-menu-item-title" title="Camera" href="#"><span class="icon flaticon-technology"></span>Camera</a></li>
-                                    <li id="menu-item-895"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-895"><a
-                                            class="azeroth-menu-item-title" title="Game & Consoles" href="#"><span class="icon flaticon-console"></span>Game & Consoles</a>
+                                    <li id="menu-item-886" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-886"><a class="azeroth-menu-item-title" title="Camera" href="#"><span class="icon flaticon-technology"></span>Camera</a></li>
+                                    <li id="menu-item-895" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-895"><a class="azeroth-menu-item-title" title="Game & Consoles" href="#"><span class="icon flaticon-console"></span>Game & Consoles</a>
                                     </li>
-                                    <li id="menu-item-888"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-888"><a
-                                            class="azeroth-menu-item-title" title="Printers & Ink" href="#"><span class="icon flaticon-print-button"></span>Printers & Ink</a></li>
-                                    <li id="menu-item-889"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-889"><a
-                                            class="azeroth-menu-item-title" title="Speaker" href="#"><span class="icon flaticon-technology-1"></span>Speaker</a></li>
-                                    <li id="menu-item-890"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-890"><a
-                                            class="azeroth-menu-item-title" title="Smartphone" href="#"><span class="icon flaticon-smartphone"></span>Smartphone</a></li>
-                                    <li id="menu-item-891"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-891"><a
-                                            class="azeroth-menu-item-title" title="Accessories" href="#"><span class="icon flaticon-mouse"></span>Accessories</a></li>
-                                    <li id="menu-item-892"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-892"><a
-                                            class="azeroth-menu-item-title" title="Essentials" href="#"><span class="icon flaticon-layers"></span>Essentials</a>
+                                    <li id="menu-item-888" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-888"><a class="azeroth-menu-item-title" title="Printers & Ink" href="#"><span class="icon flaticon-print-button"></span>Printers & Ink</a></li>
+                                    <li id="menu-item-889" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-889"><a class="azeroth-menu-item-title" title="Speaker" href="#"><span class="icon flaticon-technology-1"></span>Speaker</a></li>
+                                    <li id="menu-item-890" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-890"><a class="azeroth-menu-item-title" title="Smartphone" href="#"><span class="icon flaticon-smartphone"></span>Smartphone</a></li>
+                                    <li id="menu-item-891" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-891"><a class="azeroth-menu-item-title" title="Accessories" href="#"><span class="icon flaticon-mouse"></span>Accessories</a></li>
+                                    <li id="menu-item-892" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-892"><a class="azeroth-menu-item-title" title="Essentials" href="#"><span class="icon flaticon-layers"></span>Essentials</a>
                                     </li>
-                                    <li id="menu-item-893"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-893"><a
-                                            class="azeroth-menu-item-title" title="Featured" href="#"><span class="icon flaticon-shapes"></span>Featured</a></li>
-                                    <li id="menu-item-894"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-894 link-other">
+                                    <li id="menu-item-893" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-893"><a class="azeroth-menu-item-title" title="Featured" href="#"><span class="icon flaticon-shapes"></span>Featured</a></li>
+                                    <li id="menu-item-894" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-894 link-other">
                                         <a class="azeroth-menu-item-title" title="Best Seller" href="#"><span class="icon flaticon-shiny-diamond"></span> Seller</a></li>
                                 </ul>
                                 <div class="view-all-category">
-                                    <a href="#" data-closetext="Close" data-alltext="All Categories"
-                                       class="btn-view-all open-cate">All Categories</a>
+                                    <a href="#" data-closetext="Close" data-alltext="All Categories" class="btn-view-all open-cate">All Categories</a>
                                 </div>
                             </div>
-                        </div><!-- block category -->
+                        </div>
+                        <!-- block category -->
                         <div class="box-header-nav menu-nocenter">
-                            <ul id="menu-primary-menu"
-                                class="clone-main-menu kobolg-clone-mobile-menu kobolg-nav main-menu">
-                                <li id="menu-item-230"
-                                    class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-230 parent parent-megamenu item-megamenu menu-item-has-children">
-                                    <a href="#" routerLink="/trangchu" class="kobolg-menu-item-title" title="Trang chủ" >Trang chủ</a>                                   
+                            <ul id="menu-primary-menu" class="clone-main-menu kobolg-clone-mobile-menu kobolg-nav main-menu">
+                                <li id="menu-item-230" class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-230 parent parent-megamenu item-megamenu menu-item-has-children">
+                                    <a href="#" routerLink="/trangchu" class="kobolg-menu-item-title" title="Trang chủ">Trang chủ</a>
                                 </li>
-                                <li id="menu-item-228"
-                                    class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-228 parent parent-megamenu item-megamenu menu-item-has-children">
-                                    <a class="kobolg-menu-item-title" title="Shop"
-                                       href="shop.html">Thực đơn</a>
+                                <li id="menu-item-228" class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-228 parent parent-megamenu item-megamenu menu-item-has-children">
+                                    <a class="kobolg-menu-item-title" title="Shop" href="shop.html">Thực đơn</a>
                                     <span class="toggle-submenu"></span>
                                     <div class="submenu megamenu megamenu-shop">
                                         <div class="row">
@@ -253,8 +219,7 @@
                                                                         <img src="assets/images/label-new.jpg"
                                                                              class="attachment-full size-full"
                                                                              alt="img">
-                                                                    </span>
-                                                                    Shop List
+                                                                    </span> Shop List
                                                                 </a>
                                                             </li>
                                                             <li>
@@ -280,24 +245,20 @@
                                                                     Thumbnails </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-product-policy.html"
-                                                                   target="_self">
+                                                                <a href="single-product-policy.html" target="_self">
                                                                     <span class="image">
                                                                         <img src="assets/images/label-new.jpg"
                                                                              class="attachment-full size-full"
                                                                              alt="img">
-                                                                    </span>
-                                                                    Extra Sidebar
+                                                                    </span> Extra Sidebar
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-product-rightsidebar.html"
-                                                                   target="_self">
+                                                                <a href="single-product-rightsidebar.html" target="_self">
                                                                     Right Sidebar </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-product-leftsidebar.html"
-                                                                   target="_self">
+                                                                <a href="single-product-leftsidebar.html" target="_self">
                                                                     Left Sidebar </a>
                                                             </li>
                                                         </ul>
@@ -311,29 +272,24 @@
                                                             Product Extends </h4>
                                                         <ul class="listitem-list">
                                                             <li>
-                                                                <a href="single-product-bundle.html"
-                                                                   target="_self">
-                                                                            <span class="image">
+                                                                <a href="single-product-bundle.html" target="_self">
+                                                                    <span class="image">
                                                                                 <img src="assets/images/label-new.jpg"
                                                                                      class="attachment-full size-full"
                                                                                      alt="img">
-                                                                            </span>
-                                                                    Product Bundle
+                                                                            </span> Product Bundle
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-product-360deg.html"
-                                                                   target="_self">
+                                                                <a href="single-product-360deg.html" target="_self">
                                                                     <span class="image">
                                                                         <img src="assets/images/label-hot.jpg"
                                                                              class="attachment-full size-full"
                                                                              alt="img">
-                                                                    </span>
-                                                                    Product 360 Deg </a>
+                                                                    </span> Product 360 Deg </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-product-video.html"
-                                                                   target="_self">
+                                                                <a href="single-product-video.html" target="_self">
                                                                     Video </a>
                                                             </li>
                                                         </ul>
@@ -371,37 +327,30 @@
                                                             Product Types </h4>
                                                         <ul class="listitem-list">
                                                             <li>
-                                                                <a href="single-product-simple.html"
-                                                                   target="_self">
+                                                                <a href="single-product-simple.html" target="_self">
                                                                     Simple </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-product.html"
-                                                                   target="_self">
-                                                                            <span class="image"><img
+                                                                <a href="single-product.html" target="_self">
+                                                                    <span class="image"><img
                                                                                     src="assets/images/label-hot.jpg"
                                                                                     class="attachment-full size-full"
-                                                                                    alt="img"></span>
-                                                                    Variable </a>
+                                                                                    alt="img"></span> Variable </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-product-external.html"
-                                                                   target="_self">
+                                                                <a href="single-product-external.html" target="_self">
                                                                     External / Affiliate </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-product-group.html"
-                                                                   target="_self">
+                                                                <a href="single-product-group.html" target="_self">
                                                                     Grouped </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-product-outofstock.html"
-                                                                   target="_self">
+                                                                <a href="single-product-outofstock.html" target="_self">
                                                                     Out Of Stock </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-product-onsale.html"
-                                                                   target="_self">
+                                                                <a href="single-product-onsale.html" target="_self">
                                                                     On Sale </a>
                                                             </li>
                                                         </ul>
@@ -411,8 +360,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li id="menu-item-229"
-                                    class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-229 parent parent-megamenu item-megamenu menu-item-has-children">
+                                <li id="menu-item-229" class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-229 parent parent-megamenu item-megamenu menu-item-has-children">
                                     <a class="kobolg-menu-item-title" title="Elements" href="#">Elements</a>
                                     <span class="toggle-submenu"></span>
                                     <div class="submenu megamenu megamenu-elements">
@@ -423,21 +371,17 @@
                                                         <h4 class="title">Element 1 </h4>
                                                         <ul class="listitem-list">
                                                             <li>
-                                                                <a href="banner.html"
-                                                                   target="_self">Banner </a>
+                                                                <a href="banner.html" target="_self">Banner </a>
                                                             </li>
                                                             <li>
-                                                                <a href="blog-element.html"
-                                                                   target="_self">Blog Element </a>
+                                                                <a href="blog-element.html" target="_self">Blog Element </a>
                                                             </li>
                                                             <li>
-                                                                <a href="categories-element.html"
-                                                                   target="_self">
+                                                                <a href="categories-element.html" target="_self">
                                                                     Categories Element </a>
                                                             </li>
                                                             <li>
-                                                                <a href="product-element.html"
-                                                                   target="_self">
+                                                                <a href="product-element.html" target="_self">
                                                                     Product Element </a>
                                                             </li>
                                                         </ul>
@@ -451,28 +395,23 @@
                                                             Element 2 </h4>
                                                         <ul class="listitem-list">
                                                             <li>
-                                                                <a href="client.html"
-                                                                   target="_self">
+                                                                <a href="client.html" target="_self">
                                                                     Client </a>
                                                             </li>
                                                             <li>
-                                                                <a href="product-layout.html"
-                                                                   target="_self">
+                                                                <a href="product-layout.html" target="_self">
                                                                     Product Layout </a>
                                                             </li>
                                                             <li>
-                                                                <a href="google-map.html"
-                                                                   target="_self">
+                                                                <a href="google-map.html" target="_self">
                                                                     Google map </a>
                                                             </li>
                                                             <li>
-                                                                <a href="iconbox.html"
-                                                                   target="_self">
+                                                                <a href="iconbox.html" target="_self">
                                                                     Icon Box </a>
                                                             </li>
                                                             <li>
-                                                                <a href="team.html"
-                                                                   target="_self">
+                                                                <a href="team.html" target="_self">
                                                                     Team </a>
                                                             </li>
                                                         </ul>
@@ -486,18 +425,15 @@
                                                             Element 3 </h4>
                                                         <ul class="listitem-list">
                                                             <li>
-                                                                <a href="instagram-feed.html"
-                                                                   target="_self">
+                                                                <a href="instagram-feed.html" target="_self">
                                                                     Instagram Feed </a>
                                                             </li>
                                                             <li>
-                                                                <a href="newsletter.html"
-                                                                   target="_self">
+                                                                <a href="newsletter.html" target="_self">
                                                                     Newsletter </a>
                                                             </li>
                                                             <li>
-                                                                <a href="testimonials.html"
-                                                                   target="_self">
+                                                                <a href="testimonials.html" target="_self">
                                                                     Testimonials </a>
                                                             </li>
                                                         </ul>
@@ -507,10 +443,8 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li id="menu-item-996"
-                                    class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-996 parent parent-megamenu item-megamenu menu-item-has-children">
-                                    <a class="kobolg-menu-item-title" title="Blog"
-                                       href="blog.html">Blog</a>
+                                <li id="menu-item-996" class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-996 parent parent-megamenu item-megamenu menu-item-has-children">
+                                    <a class="kobolg-menu-item-title" title="Blog" href="blog.html">Blog</a>
                                     <span class="toggle-submenu"></span>
                                     <div class="submenu megamenu megamenu-blog">
                                         <div class="row">
@@ -565,19 +499,16 @@
                                                                         <img src="assets/images/label-hot.jpg"
                                                                              class="attachment-full size-full"
                                                                              alt="img">
-                                                                    </span>
-                                                                    Instagram In Post
+                                                                    </span> Instagram In Post
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-post-product.html"
-                                                                   target="_self">
+                                                                <a href="single-post-product.html" target="_self">
                                                                     <span class="image">
                                                                         <img src="assets/images/label-new.jpg"
                                                                              class="attachment-full size-full"
                                                                              alt="img">
-                                                                    </span>
-                                                                    Product In Post
+                                                                    </span> Product In Post
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -595,14 +526,12 @@
                                                                 <a href="single-post-gallery.html" target="_self">Gallery </a>
                                                             </li>
                                                             <li>
-                                                                <a href="single-post-video.html"
-                                                                   target="_self">
+                                                                <a href="single-post-video.html" target="_self">
                                                                     <span class="image">
                                                                         <img src="assets/images/label-hot.jpg"
                                                                              class="attachment-full size-full"
                                                                              alt="img">
-                                                                    </span>
-                                                                    Video
+                                                                    </span> Video
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -612,27 +541,19 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li id="menu-item-237"
-                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-237 parent">
+                                <li id="menu-item-237" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-237 parent">
                                     <a class="kobolg-menu-item-title" title="Pages" href="#">Pages</a>
                                     <span class="toggle-submenu"></span>
                                     <ul role="menu" class="submenu">
-                                        <li id="menu-item-987"
-                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-987">
-                                            <a class="kobolg-menu-item-title" title="About"
-                                               href="about.html">About</a></li>
-                                        <li id="menu-item-988"
-                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-988">
-                                            <a class="kobolg-menu-item-title" title="Contact"
-                                               href="contact.html">Contact</a></li>
-                                        <li id="menu-item-990"
-                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-990">
-                                            <a class="kobolg-menu-item-title" title="Page 404"
-                                               href="404.html">Page 404</a></li>
+                                        <li id="menu-item-987" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-987">
+                                            <a class="kobolg-menu-item-title" title="About" href="about.html">About</a></li>
+                                        <li id="menu-item-988" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-988">
+                                            <a class="kobolg-menu-item-title" title="Contact" href="contact.html">Contact</a></li>
+                                        <li id="menu-item-990" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-990">
+                                            <a class="kobolg-menu-item-title" title="Page 404" href="404.html">Page 404</a></li>
                                     </ul>
                                 </li>
-                                <li id="menu-item-238"
-                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-238">
+                                <li id="menu-item-238" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-238">
                                     <a class="kobolg-menu-item-title" title="Free Shipping on Orders $100" href="#">Free
                                         Shipping on Orders $100</a>
                                 </li>
@@ -659,20 +580,16 @@
                     </a>
                 </div>
                 <div class="block-search">
-                    <form role="search" method="get"
-                          class="form-search block-search-form kobolg-live-search-form">
+                    <form role="search" method="get" class="form-search block-search-form kobolg-live-search-form">
                         <div class="form-content search-box results-search">
                             <div class="inner">
-                                <input autocomplete="off" class="searchfield txt-livesearch input" name="s" value=""
-                                       placeholder="Search here..." type="text">
+                                <input autocomplete="off" class="searchfield txt-livesearch input" name="s" value="" placeholder="Search here..." type="text">
                             </div>
                         </div>
                         <input name="post_type" value="product" type="hidden">
                         <input name="taxonomy" value="product_cat" type="hidden">
                         <div class="category">
-                            <select title="product_cat" name="product_cat" id="1770352541"
-                                    class="category-search-option" tabindex="-1"
-                                    style="display: none;">
+                            <select title="product_cat" name="product_cat" id="1770352541" class="category-search-option" tabindex="-1" style="display: none;">
                                 <option value="0">All Categories</option>
                                 <option class="level-0" value="light">Camera</option>
                                 <option class="level-0" value="chair">Accessories</option>
@@ -687,23 +604,20 @@
                         <button type="submit" class="btn-submit">
                             <span class="flaticon-search"></span>
                         </button>
-                    </form><!-- block search -->
+                    </form>
+                    <!-- block search -->
                 </div>
             </div>
             <ul class="wpml-menu">
                 <li class="menu-item kobolg-dropdown block-language">
                     <a href="#" data-kobolg="kobolg-dropdown">
-                        <img src="assets/images/en.png"
-                             alt="en" width="18" height="12">
-                        English
+                        <img src="assets/images/en.png" alt="en" width="18" height="12"> English
                     </a>
                     <span class="toggle-submenu"></span>
                     <ul class="sub-menu">
                         <li class="menu-item">
                             <a href="#">
-                                <img src="assets/images/it.png"
-                                     alt="it" width="18" height="12">
-                                Italiano
+                                <img src="assets/images/it.png" alt="it" width="18" height="12"> Italiano
                             </a>
                         </li>
                     </ul>
@@ -726,9 +640,8 @@
         </div>
         <div class="header-mobile-mid">
             <div class="header-logo">
-                <a href="index-2.html"><img alt="Kobolg"
-                                          src="assets/images/logo.png"
-                                          class="logo"></a></div>
+                <a href="index-2.html"><img alt="Kobolg" src="assets/images/logo.png" class="logo"></a>
+            </div>
         </div>
         <div class="header-mobile-right">
             <div class="header-control-inner">
@@ -772,35 +685,32 @@
                                     <li class="kobolg-mini-cart-item mini_cart_item">
                                         <a href="#" class="remove remove_from_cart_button">×</a>
                                         <a href="#">
-                                            <img src="assets/images/apro134-1-600x778.jpg"
-                                                 class="attachment-kobolg_thumbnail size-kobolg_thumbnail"
-                                                 alt="img" width="600" height="778">T-shirt with skirt – Pink&nbsp;
+                                            <img src="assets/images/apro134-1-600x778.jpg" class="attachment-kobolg_thumbnail size-kobolg_thumbnail" alt="img" width="600" height="778">T-shirt with skirt – Pink&nbsp;
                                         </a>
                                         <span class="quantity">1 × <span
                                                 class="kobolg-Price-amount amount"><span
-                                                class="kobolg-Price-currencySymbol">$</span>150.00</span></span>
+                                                class="kobolg-Price-currencySymbol">$</span>150.00</span>
+                                        </span>
                                     </li>
                                     <li class="kobolg-mini-cart-item mini_cart_item">
                                         <a href="#" class="remove remove_from_cart_button">×</a>
                                         <a href="#">
-                                            <img src="assets/images/apro1113-600x778.jpg"
-                                                 class="attachment-kobolg_thumbnail size-kobolg_thumbnail"
-                                                 alt="img" width="600" height="778">Red Consoles&nbsp;
+                                            <img src="assets/images/apro1113-600x778.jpg" class="attachment-kobolg_thumbnail size-kobolg_thumbnail" alt="img" width="600" height="778">Red Consoles&nbsp;
                                         </a>
                                         <span class="quantity">1 × <span
                                                 class="kobolg-Price-amount amount"><span
-                                                class="kobolg-Price-currencySymbol">$</span>129.00</span></span>
+                                                class="kobolg-Price-currencySymbol">$</span>129.00</span>
+                                        </span>
                                     </li>
                                     <li class="kobolg-mini-cart-item mini_cart_item">
                                         <a href="#" class="remove remove_from_cart_button">×</a>
                                         <a href="#">
-                                            <img src="assets/images/apro201-1-600x778.jpg"
-                                                 class="attachment-kobolg_thumbnail size-kobolg_thumbnail"
-                                                 alt="img" width="600" height="778">Smart Monitor&nbsp;
+                                            <img src="assets/images/apro201-1-600x778.jpg" class="attachment-kobolg_thumbnail size-kobolg_thumbnail" alt="img" width="600" height="778">Smart Monitor&nbsp;
                                         </a>
                                         <span class="quantity">1 × <span
                                                 class="kobolg-Price-amount amount"><span
-                                                class="kobolg-Price-currencySymbol">$</span>139.00</span></span>
+                                                class="kobolg-Price-currencySymbol">$</span>139.00</span>
+                                        </span>
                                     </li>
                                 </ul>
                                 <p class="kobolg-mini-cart__total total"><strong>Subtotal:</strong>

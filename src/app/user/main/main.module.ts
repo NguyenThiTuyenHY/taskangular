@@ -5,8 +5,8 @@ import {ShareModule} from "../share/share.module";
 import {Routes,RouterModule} from "@angular/router";
 import {MainComponent} from "./main.component";
 import { Route } from '@angular/compiler/src/core';
-import { FooterComponent } from '../share/footer/footer.component';
-
+import {DangnhapComponent} from '../common/dangnhap/dangnhap.component';
+import {DangkyComponent} from '../common/dangky/dangky.component';
 const mainroutes : Routes = [
   {
     path:"",
@@ -33,6 +33,14 @@ const mainroutes : Routes = [
         loadChildren:()=>import("./blog/blog.module").then((m)=>m.BlogModule)
       }
     ]
+  },
+  {
+    path:"dangnhap",
+    component: DangnhapComponent
+  },
+  {
+    path:"dangky",
+    component: DangkyComponent
   }
 ] 
 @NgModule({
