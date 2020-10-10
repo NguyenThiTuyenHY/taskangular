@@ -1,14 +1,25 @@
-import { Component, OnInit, AfterViewInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
+import { baseComponent } from 'src/app/user/lib/base-component';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-detailproduct',
   templateUrl: './detailproduct.component.html',
   styleUrls: ['./detailproduct.component.css']
 })
-export class DetailproductComponent implements OnInit {
+export class DetailproductComponent extends baseComponent implements OnInit{
 
-  constructor(private renderer: Renderer2) { }
-
+  constructor(private ij : Injector) { 
+    super(ij)
+  }
+  id:number;
   ngOnInit(): void {
+    this._route.params.subscribe(params=>{
+      this.id = params["id"];
+      setTimeout(()=>{
+        this.loadScripts();
+      });
+      console.log(this.id);
+    });    
   }
 }

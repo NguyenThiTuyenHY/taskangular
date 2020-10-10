@@ -4,7 +4,7 @@ import { ThongkeComponent } from './thongke/thongke.component';
 import {Routes, RouterModule, Router} from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { MainadminComponent } from './mainadmin.component';
-import { DangnhapComponent } from '../common/dangnhap/dangnhap.component';
+import { DangnhapComponent } from '../commonadmin/dangnhap/dangnhap.component';
 import {ShareModule} from '../share/share.module';
 import { from } from 'rxjs';
 const Mainadminrouter: Routes = [

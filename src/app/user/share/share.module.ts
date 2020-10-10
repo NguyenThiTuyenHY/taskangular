@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from "./header/header.component";
 import {Router, RouterModule} from "@angular/router";
+import { from } from 'rxjs';
 @NgModule({
   declarations: [FooterComponent,HeaderComponent],
   imports: [

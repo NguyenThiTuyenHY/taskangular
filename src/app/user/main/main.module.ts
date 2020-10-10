@@ -1,12 +1,16 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Injector, RendererFactory2 , AfterContentInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import {ShareModule} from "../share/share.module";
 import {Routes,RouterModule} from "@angular/router";
 import {MainComponent} from "./main.component";
 import { Route } from '@angular/compiler/src/core';
-import {DangnhapComponent} from '../common/dangnhap/dangnhap.component';
-import {DangkyComponent} from '../common/dangky/dangky.component';
+import {DangnhapComponent} from '../commonuser/dangnhap/dangnhap.component';
+import {DangkyComponent} from '../commonuser/dangky/dangky.component';
+import { baseComponent } from '../lib/base-component';
+import { CommonuserModule } from '../commonuser/commonuser.module';
+import { ProductnewComponent } from './home/productnew/productnew.component';
+import { ProductbestComponent } from './home/productbest/productbest.component';
 const mainroutes : Routes = [
   {
     path:"",
@@ -44,12 +48,14 @@ const mainroutes : Routes = [
   }
 ] 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, ProductnewComponent, ProductbestComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(mainroutes),
-    ShareModule
+    ShareModule,
+    CommonuserModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
-export class MainModule { }
+export class  MainModule { 
+}
