@@ -20,6 +20,6 @@ export class DetailproductComponent extends baseComponent implements OnInit{
         this.loadScripts();
       });
       console.log(this.id);
-    });    
+    });  
   }
 }

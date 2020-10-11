@@ -13,7 +13,8 @@ import { ErrorComponent } from './error/error.component';
   ],
   exports:[
     DangnhapComponent,
-    DangkyComponent
+    DangkyComponent,
+    ErrorComponent
   ]
 })
 export class CommonuserModule { }

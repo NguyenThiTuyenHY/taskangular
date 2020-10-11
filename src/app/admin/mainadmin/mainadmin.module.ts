@@ -7,6 +7,10 @@ import { MainadminComponent } from './mainadmin.component';
 import { DangnhapComponent } from '../commonadmin/dangnhap/dangnhap.component';
 import {ShareModule} from '../share/share.module';
 import { from } from 'rxjs';
+import { BananComponent } from './banan/banan.component';
+import { BophanComponent } from './bophan/bophan.component';
+import { PrimeNGConfig } from 'primeng/api';
+import {TableModule} from 'primeng/table';
 const Mainadminrouter: Routes = [
   {
     path: '',
@@ -15,6 +19,14 @@ const Mainadminrouter: Routes = [
       {
         path: '',
         component: ThongkeComponent
+      },
+      {
+        path: 'banan',
+        component: BananComponent
+      },
+      {
+        path: 'bophan',
+        component: BophanComponent
       }
     ]
   },
@@ -25,11 +37,14 @@ const Mainadminrouter: Routes = [
 ]
 
 @NgModule({
-  declarations: [ThongkeComponent, MainadminComponent],
+  declarations: [ThongkeComponent, MainadminComponent,BananComponent, BophanComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(Mainadminrouter),
-    ShareModule
+    ShareModule,
+    TableModule
   ]
 })
-export class MainadminModule { }
+export class MainadminModule {
+  constructor(private primengConfig: PrimeNGConfig){}
+ }

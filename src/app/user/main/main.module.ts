@@ -11,6 +11,7 @@ import { baseComponent } from '../lib/base-component';
 import { CommonuserModule } from '../commonuser/commonuser.module';
 import { ProductnewComponent } from './home/productnew/productnew.component';
 import { ProductbestComponent } from './home/productbest/productbest.component';
+import { ErrorComponent } from '../commonuser/error/error.component';
 const mainroutes : Routes = [
   {
     path:"",
@@ -45,6 +46,10 @@ const mainroutes : Routes = [
   {
     path:"dangky",
     component: DangkyComponent
+  },
+  {
+    path: 'err',
+    component: ErrorComponent
   }
 ] 
 @NgModule({
@@ -58,4 +63,5 @@ const mainroutes : Routes = [
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class  MainModule { 
+  
 }

@@ -1,21 +1,25 @@
 import {Component, Renderer2, Injector} from '@angular/core';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiServices } from './api.component';
 @NgModule({
     declarations: [],
     imports: [],
     exports:[]
   })
-  export class baseComponent{ 
+export class baseComponent{ 
     public _renderer:any;
     public _route: any;
+    public _api:any;
     constructor(injector: Injector) {  
         // this._renderer = rendererFactory.createRenderer(null, null);
         this._renderer = injector.get(Renderer2);
         this._route = injector.get(ActivatedRoute);
+        this._api = injector.get(ApiServices);
     }
     public loadScripts() {
         this.renderExternalScript('assets/js/bootstrap.min.js').onload = ()=>{}
+        this.renderExternalScript('assets/admin/vendor/fontawesome-free/css/all.min.css').onload = ()=>{}
         this.renderExternalScript('assets/js/functions.js').onload = () => {}
         this.renderExternalScript('assets/js/chosen.min.js').onload = ()=>{}
         this.renderExternalScript('assets/js/countdown.min.js').onload = () => {}

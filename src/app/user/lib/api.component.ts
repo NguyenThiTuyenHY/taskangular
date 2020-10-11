@@ -7,14 +7,14 @@ import {throwError as observableThrowError} from 'rxjs';
     providedIn:'root',
 })
 export class ApiServices {
-    public base_host = '';
+    public base_host = 'https://localhost:44327/';
     constructor (private _http:HttpClient, private router: Router){}
     post(url: string, obj: any){
         const body = JSON.stringify(obj);
         let cloneHeader: any = {};
         cloneHeader['content-type'] = 'application/json';
         const headerOptions = new HttpHeaders(cloneHeader);
-        return this._http.post<any>(this.base_host + url, body, {headers:headerOptions}).pipe(map((res:any)=>{
+        return this._http.post<any>(this.base_host + url, body, {headers: headerOptions}).pipe(map((res:any)=>{
             let json = res;
             return json;
         })).pipe(
@@ -26,8 +26,9 @@ export class ApiServices {
     get_all(url:any){
         let cloneHeader: any = {};
         cloneHeader['Content-Type'] = 'application/json';
+        cloneHeader['Access-Control-Allow-Origin'] = '*';
         const headerOptions = new HttpHeaders(cloneHeader);
-        return this._http.get<any>(this.base_host + url,{headers:headerOptions}).pipe(
+        return this._http.get<any>(this.base_host + url, {headers: headerOptions}).pipe(
             map((res:any)=>{
                 let json = res;
                 return json;
@@ -42,7 +43,7 @@ export class ApiServices {
         let cloneHeader: any = {};
         cloneHeader['Content-Type'] = 'application/json';
         const headerOptions = new HttpHeaders(cloneHeader);
-        return this._http.get<any>(this.base_host + url +"/" + id,{headers:headerOptions}).pipe(
+        return this._http.get<any>(this.base_host + url +"/" + id,{headers: headerOptions}).pipe(
             map((res:any)=>{
                 let json = res;
                 return json;
@@ -55,6 +56,7 @@ export class ApiServices {
     }
     public handleError(error: any) {
         this.router.navigate(['/err']);
+        console.log(error);
         return observableThrowError(error);
     }
 }
