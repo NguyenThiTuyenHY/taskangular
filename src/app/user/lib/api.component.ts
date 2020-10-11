@@ -28,7 +28,7 @@ export class ApiServices {
         cloneHeader['Content-Type'] = 'application/json';
         cloneHeader['Access-Control-Allow-Origin'] = '*';
         const headerOptions = new HttpHeaders(cloneHeader);
-        return this._http.get<any>(this.base_host + url, {headers: headerOptions}).pipe(
+        return this._http.get<any>(this.base_host + url,{headers:headerOptions}).pipe(
             map((res:any)=>{
                 let json = res;
                 return json;

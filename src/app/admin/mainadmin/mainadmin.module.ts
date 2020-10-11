@@ -11,6 +11,10 @@ import { BananComponent } from './banan/banan.component';
 import { BophanComponent } from './bophan/bophan.component';
 import { PrimeNGConfig } from 'primeng/api';
 import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import {DialogModule} from 'primeng/dialog';
+import {InputTextModule} from 'primeng/inputtext';
+import {FormsModule} from '@angular/forms';
 const Mainadminrouter: Routes = [
   {
     path: '',
@@ -42,7 +46,11 @@ const Mainadminrouter: Routes = [
     CommonModule,
     RouterModule.forChild(Mainadminrouter),
     ShareModule,
-    TableModule
+    TableModule,
+    ButtonModule,
+    DialogModule,
+    InputTextModule,
+    FormsModule
   ]
 })
 export class MainadminModule {
