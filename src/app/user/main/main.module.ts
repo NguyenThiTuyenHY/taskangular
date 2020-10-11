@@ -27,7 +27,11 @@ const mainroutes : Routes = [
       },
       {
         path:"sanpham",
-        loadChildren:()=>import("./product/product.module").then((m)=>m.ProductModule)
+        loadChildren:()=>import("./product/detailproduct/detailproduct.module").then((m)=>m.DetailproductModule)
+      },
+      {
+        path:"loaimon",
+        loadChildren:()=>import("./product/listproduct/listproduct.module").then((m)=>m.ListproductModule)
       },
       {
         path:"giohang",

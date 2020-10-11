@@ -6,7 +6,7 @@ import{ListproductComponent}from './listproduct/listproduct.component';
 import { from } from 'rxjs';
 const productrouter: Routes =[
   {
-    path:"\danhsach",
+    path:"danhsach",
     component: ListproductComponent,
   },
   {

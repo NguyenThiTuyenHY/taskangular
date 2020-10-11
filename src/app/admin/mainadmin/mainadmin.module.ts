@@ -15,6 +15,8 @@ import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {FormsModule} from '@angular/forms';
+import { LoaimonComponent } from './loaimon/loaimon.component';
+import { MonanComponent } from './monan/monan.component';
 const Mainadminrouter: Routes = [
   {
     path: '',
@@ -41,7 +43,7 @@ const Mainadminrouter: Routes = [
 ]
 
 @NgModule({
-  declarations: [ThongkeComponent, MainadminComponent,BananComponent, BophanComponent],
+  declarations: [ThongkeComponent, MainadminComponent,BananComponent, BophanComponent, LoaimonComponent, MonanComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(Mainadminrouter),
