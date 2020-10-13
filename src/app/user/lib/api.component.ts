@@ -54,6 +54,21 @@ export class ApiServices {
             })
         )
     }
+    create(url:any,object:any){
+        let cloneHeader : any = {};
+        cloneHeader['Content-Type'] = 'application/json';
+        const headerOptions = new HttpHeaders(cloneHeader);
+        return this._http.post<any>(this.base_host + url,object,{headers:headerOptions}).pipe(
+            map((res:any)=>{
+                let json = res;
+                return json;
+            })
+        ).pipe(
+            catchError((err:Response)=>{
+                return this.handleError(err);
+            })
+        )
+    }
     public handleError(error: any) {
         this.router.navigate(['/err']);
         console.log(error);

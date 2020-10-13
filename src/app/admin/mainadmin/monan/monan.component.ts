@@ -25,10 +25,14 @@ export class MonanComponent extends baseadmincomponent implements OnInit {
   monanform = FormGroup;
   tenmon:any;
   protocol:string;
+  bophan:any;
+  selectloai: any;
   ngOnInit(): void {
-    // this._route.params.subscribe(parmas=>{
-    //   this._api.get("")
-    // })
+    this._route.params.subscribe(parmas=>{
+      this._api.get_all("api/loaimon/get_all_loai_mon").subscribe(res=>{
+        this.bophan = res;
+      })
+    })
     CKEDITOR.on('instanceCreated', function (event, data) {
       var editor = event.editor,
       element = editor.element;
@@ -79,14 +83,21 @@ export class MonanComponent extends baseadmincomponent implements OnInit {
     // console.log(CKEDITOR.instances.content.getData());
     console.log(this.ckeditorContent);
     if(this.protocol=="create"){
-      for(let file of this.uploadedFiles){
-        // var reader = new FileReader();
-        // reader.onload = function(e){
-        //   console.log(file.name);
-        // } 
-        console.log(file.name);
-      }
-      this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Thêm món ăn thành công'});
+      var formdata = new FormData();
+      formdata.append('tenmon',this.txttenmon);
+      formdata.append('donvitinh',this.txtdonvi);
+      formdata.append('gia',this.txtdongia);
+      formdata.append('mota',this.ckeditorContent);
+      formdata.append('hinhanh',JSON.stringify(this.uploadedFiles));
+      formdata.append('idloai',this.selectloai);
+      this._api.create('/api/monan/Create_mon_an',formdata).subscribe(res=>{
+        if(res==true){
+          this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Thêm món ăn thành công'});
+        }
+        else{
+          this.messageService.add({severity:'error', summary: 'Thất bại', detail: 'Thêm món ăn thất bại'});
+        }
+      });
     }
     if(this.protocol=="edit"){
       this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Sửa món ăn thành công'});
