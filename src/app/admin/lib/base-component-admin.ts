@@ -23,6 +23,7 @@ export class baseadmincomponent{
         this.renderExternalScript('assets/admin/vendor/datatables/jquery.dataTables.min.js').onload = () => {}
         this.renderExternalScript('assets/admin/vendor/datatables/dataTables.bootstrap4.min.js').onload = () => {}
         this.renderExternalScript('assets/admin/js/demo/datatables-demo.js').onload = () => {}
+        this.renderExternalScript('https://cdn.ckeditor.com/4.14.1/full/ckeditor.js').onload = ()=>{}
       }
   public renderExternalScript(src: string): HTMLScriptElement {
         const script = document.createElement('script');

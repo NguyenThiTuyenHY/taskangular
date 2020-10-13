@@ -14,9 +14,19 @@ import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoaimonComponent } from './loaimon/loaimon.component';
 import { MonanComponent } from './monan/monan.component';
+import { CKEditorModule } from 'ng2-ckeditor';
+import {FileUploadModule} from 'primeng/fileupload';
+import { NhanvienComponent } from './nhanvien/nhanvien.component';
+import { KhachhangComponent } from './khachhang/khachhang.component';
+import { TaikhoanComponent } from './taikhoan/taikhoan.component';
+import { PhieugoimonComponent } from './phieugoimon/phieugoimon.component';
+import { KhachhangthanhtoanComponent } from './khachhangthanhtoan/khachhangthanhtoan.component';
+import { CalamComponent } from './calam/calam.component';
+import { SliderComponent } from 'src/app/user/share/slider/slider.component';
+import { BinhluanComponent } from './binhluan/binhluan.component';
 const Mainadminrouter: Routes = [
   {
     path: '',
@@ -27,12 +37,56 @@ const Mainadminrouter: Routes = [
         component: ThongkeComponent
       },
       {
+        path: 'thongke',
+        component: ThongkeComponent
+      },
+      {
         path: 'banan',
         component: BananComponent
       },
       {
         path: 'bophan',
         component: BophanComponent
+      },
+      {
+        path: 'loaimon',
+        component: LoaimonComponent
+      },
+      {
+        path: 'monan',
+        component: MonanComponent
+      },
+      {
+        path: 'nhanvien',
+        component: NhanvienComponent
+      },
+      {
+        path:'khachhang',
+        component: KhachhangComponent
+      },
+      {
+        path:'taikhoan',
+        component: TaikhoanComponent
+      },
+      {
+        path:'phieugoi',
+        component: PhieugoimonComponent
+      },
+      {
+        path:'thanhtoan',
+        component: KhachhangthanhtoanComponent
+      },
+      {
+        path:'calam',
+        component: CalamComponent
+      },
+      {
+        path:'slider',
+        component: SliderComponent
+      },
+      {
+        path:'binhluan',
+        component: BinhluanComponent
       }
     ]
   },
@@ -43,7 +97,7 @@ const Mainadminrouter: Routes = [
 ]
 
 @NgModule({
-  declarations: [ThongkeComponent, MainadminComponent,BananComponent, BophanComponent, LoaimonComponent, MonanComponent],
+  declarations: [ThongkeComponent, MainadminComponent,BananComponent, BophanComponent, LoaimonComponent, MonanComponent, NhanvienComponent, TaikhoanComponent, PhieugoimonComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(Mainadminrouter),
@@ -52,7 +106,10 @@ const Mainadminrouter: Routes = [
     ButtonModule,
     DialogModule,
     InputTextModule,
-    FormsModule
+    FormsModule,
+    CKEditorModule,
+    FileUploadModule,
+    ReactiveFormsModule
   ]
 })
 export class MainadminModule {

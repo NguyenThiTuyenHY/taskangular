@@ -18,7 +18,7 @@ export class BophanComponent extends baseadmincomponent implements OnInit {
   }
   ngOnInit(): void {
     this._api.params.subscribe(params=>{
-      this._api.get_all('api/banan/get_all_banan').subscribe(res =>{
+      this._api.get_all('api/banan/get_all_bophan').subscribe(res =>{
         this.item = res;
         setTimeout(()=>{
           this.loadScripts();
