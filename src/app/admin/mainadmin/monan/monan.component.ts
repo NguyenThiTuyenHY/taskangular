@@ -1,13 +1,13 @@
 import { Component, OnInit, Injector} from '@angular/core';
 import { baseadmincomponent } from '../../lib/base-component-admin';
-import {Validators, FormBuilder, FormGroup} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-monan',
   templateUrl: './monan.component.html',
   styleUrls: ['./monan.component.css']
 })
 export class MonanComponent extends baseadmincomponent implements OnInit {
-  constructor(private injector: Injector, private _builder: FormBuilder) {
+  constructor(private injector: Injector) {
     super(injector)
   }
   first = 0;
@@ -19,14 +19,12 @@ export class MonanComponent extends baseadmincomponent implements OnInit {
   txtdongia: any;
   display = false;
   uploadedFiles: any[] = [];
-  monanform : FormGroup;
+  monanform = FormGroup;
+  tenmon:any;
   ngOnInit(): void {
     // this._route.params.subscribe(parmas=>{
     //   this._api.get("")
     // })
-    this.monanform = this._builder.group({
-
-    })
   }
   next() {
     this.first = this.first + this.rows;

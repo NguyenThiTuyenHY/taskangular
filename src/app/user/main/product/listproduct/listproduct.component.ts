@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listproduct.component.css']
 })
 export class ListproductComponent implements OnInit {
-
+  grid = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  changegrid(){
+    this.grid = !this.grid;
+    console.log(this.grid);
+  }
 }

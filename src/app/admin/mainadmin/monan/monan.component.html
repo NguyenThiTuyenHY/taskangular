@@ -63,38 +63,36 @@
         </div>
     </div>
 </div>
-<form [formGroup]="monanform" (ngSubmit)="monanSubmit()">
-    <p-dialog [(visible)]="display" styleClass="mydialog" [style]="{width: '60vw'}">
-        <p-header>
-            Thôg tin món ăn
-        </p-header>
-        <span class="p-float-label">
-            <h5>Tên món</h5>
-            <input type="text" [formControlName] ="txttenmon" pInputText [(ngModel)]="txttenmon" [style]="{width: '55vw'}"> 
-        </span>
-        <h5>Hình ảnh</h5>
-        <p-fileUpload name="demo[]" [formControlName]="uploadedFiles" url="./upload.php" multiple="multiple" accept="image/*" maxFileSize="1000000">
-            <ng-template pTemplate="content">
-                <ul *ngIf="uploadedFiles.length">
-                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-                </ul>
-            </ng-template>
-        </p-fileUpload>
-        <span class="p-float-label">
-            <h5>Đơn vị tính</h5>
-            <input type="text" [formControlName] = "txtdonvi" pInputText [(ngModel)]="txtdonvi" [style]="{width: '55vw'}"> 
-        </span>
-        <span class="p-float-label">
-            <h5>Đơn giá</h5>
-            <input type="text" [formControlName] = "txtdongia" pInputText [(ngModel)]="txtdongia" [style]="{width: '55vw'}"> 
-        </span>
-        <span class="p-float-label"> 
-            <h5>Nội dung</h5>
-            <ckeditor [formControlName] = "ckeditorContent" [(ngModel)]="ckeditorContent" [readonly]="false">
-      </ckeditor>
-        </span>
-        <p-footer>
-            <button pButton pRipple label="Lưu" type="submit" icon="pi pi-check" class="p-button-rounded p-button-text"></button>
-        </p-footer>
-    </p-dialog>
-</form>
+<p-dialog [(visible)]="display" styleClass="mydialog" [style]="{width: '60vw'}">
+    <p-header>
+        Thôg tin món ăn
+    </p-header>
+    <span class="p-float-label">
+        <h5>Tên món</h5>
+        <input type="text" pInputText [(ngModel)]="txttenmon" [style]="{width: '55vw'}" required maxlength="255">
+    </span>
+    <h5>Hình ảnh</h5>
+    <p-fileUpload name="demo[]" url="./upload.php" multiple="multiple" accept="image/*" maxFileSize="1000000">
+        <ng-template pTemplate="content">
+            <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+            </ul>
+        </ng-template>
+    </p-fileUpload>
+    <span class="p-float-label">
+                    <h5>Đơn vị tính</h5>
+                    <input type="text" id="txtdonvi" name="txtdonvi" pInputText [(ngModel)]="txtdonvi" [style]="{width: '55vw'}" required maxlength="255"> 
+                </span>
+    <span class="p-float-label">
+                    <h5>Đơn giá</h5>
+                    <input type="text" id="txtdongia" name="txtdongia" pInputText [(ngModel)]="txtdongia" [style]="{width: '55vw'}" required maxlength="255"> 
+                </span>
+    <span class="p-float-label"> 
+                    <h5>Nội dung</h5>
+                    <ckeditor [(ngModel)]="ckeditorContent" [readonly]="false">
+              </ckeditor>
+                </span>
+    <p-footer>
+        <button pButton pRipple label="Lưu" type="submit" icon="pi pi-check" class="p-button-rounded p-button-text"></button>
+    </p-footer>
+</p-dialog>
