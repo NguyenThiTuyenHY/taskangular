@@ -19,6 +19,7 @@ import { LoaimonComponent } from './loaimon/loaimon.component';
 import { MonanComponent } from './monan/monan.component';
 import { CKEditorModule } from 'ng2-ckeditor';
 import {FileUploadModule} from 'primeng/fileupload';
+import {ToastModule} from 'primeng/toast';
 import { NhanvienComponent } from './nhanvien/nhanvien.component';
 import { KhachhangComponent } from './khachhang/khachhang.component';
 import { TaikhoanComponent } from './taikhoan/taikhoan.component';
@@ -109,7 +110,8 @@ const Mainadminrouter: Routes = [
     FormsModule,
     CKEditorModule,
     FileUploadModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule
   ]
 })
 export class MainadminModule {

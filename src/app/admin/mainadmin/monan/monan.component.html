@@ -45,7 +45,7 @@
                             <td>{{item.idloaimon}}</td>
                             <td>
                                 <span class="p-buttonset">
-                                    <button pButton icon="pi pi-external-link" (click)= "showDialog()" pRipple styleClass="p-button-sm"></button>
+                                    <button pButton icon="pi pi-external-link" (click)= "showDialogedit(item.id)" pRipple styleClass="p-button-sm"></button>
                                     <button pButton pRipple class="p-button-warning" icon="pi pi-trash" styleClass="p-button-sm"></button>
                                     <button pButton pRipple class="p-button-secondary" icon="pi pi-refresh" styleClass="p-button-sm"></button>
                                 </span>
@@ -63,6 +63,7 @@
         </div>
     </div>
 </div>
+<p-toast></p-toast>
 <p-dialog [(visible)]="display" styleClass="mydialog" [style]="{width: '60vw'}">
     <p-header>
         Thôg tin món ăn
@@ -71,14 +72,16 @@
         <h5>Tên món</h5>
         <input type="text" pInputText [(ngModel)]="txttenmon" [style]="{width: '55vw'}" required maxlength="255">
     </span>
+
     <h5>Hình ảnh</h5>
-    <p-fileUpload name="demo[]" url="./upload.php" multiple="multiple" accept="image/*" maxFileSize="1000000">
+    <p-fileUpload name="demo[]" url="http://localhost:4200/admin/monan" customUpload="true" (uploadHandler)="onUploadFile($event)" multiple="multiple" accept="image/*" maxFileSize="1000000" chooseLabel="Chọn" uploadLabel="Tải lên" cancelLabel="Đặt lại">
         <ng-template pTemplate="content">
             <ul *ngIf="uploadedFiles.length">
                 <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
             </ul>
         </ng-template>
     </p-fileUpload>
+
     <span class="p-float-label">
                     <h5>Đơn vị tính</h5>
                     <input type="text" id="txtdonvi" name="txtdonvi" pInputText [(ngModel)]="txtdonvi" [style]="{width: '55vw'}" required maxlength="255"> 
@@ -93,6 +96,6 @@
               </ckeditor>
                 </span>
     <p-footer>
-        <button pButton pRipple label="Lưu" type="submit" icon="pi pi-check" class="p-button-rounded p-button-text"></button>
+        <button pButton pRipple label="Lưu" [(ngModel)]="protocol" type="submit" (click)="luu()" icon="pi pi-check" class="p-button-rounded p-button-text"></button>
     </p-footer>
 </p-dialog>
