@@ -3,6 +3,8 @@ import { baseadmincomponent } from '../../lib/base-component-admin';
 import {FormGroup} from '@angular/forms';
 import {MessageService} from 'primeng/api';
 declare var CKEDITOR: any;
+declare var $:any;
+declare var document:any;
 @Component({
   selector: 'app-monan',
   templateUrl: './monan.component.html',
@@ -70,11 +72,16 @@ export class MonanComponent extends baseadmincomponent implements OnInit {
     for(let file of event.files) {
       this.uploadedFiles.push(file);
     }
+    for(let file of event.files){
+      var reader = new FileReader();
+      reader.onload = function(e){
+        console.log("hello");
+        console.log(e.target.result);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+      }
+    }
+    console.log(event.files)
     this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Tải ảnh thành công'});
   }
-   monanSubmit(){
-     
-   }
    luu(){
     console.log(this.txttenmon);
     console.log(this.txtdongia);
@@ -82,22 +89,27 @@ export class MonanComponent extends baseadmincomponent implements OnInit {
     console.log(this.uploadedFiles);
     // console.log(CKEDITOR.instances.content.getData());
     console.log(this.ckeditorContent);
+    var type = "image/*";
     if(this.protocol=="create"){
-      var formdata = new FormData();
-      formdata.append('tenmon',this.txttenmon);
-      formdata.append('donvitinh',this.txtdonvi);
-      formdata.append('gia',this.txtdongia);
-      formdata.append('mota',this.ckeditorContent);
-      formdata.append('hinhanh',JSON.stringify(this.uploadedFiles));
-      formdata.append('idloai',this.selectloai);
-      this._api.create('/api/monan/Create_mon_an',formdata).subscribe(res=>{
-        if(res==true){
-          this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Thêm món ăn thành công'});
-        }
-        else{
-          this.messageService.add({severity:'error', summary: 'Thất bại', detail: 'Thêm món ăn thất bại'});
-        }
-      });
+      var result = '';
+      
+      let formdata ={
+        tenmon:this.txttenmon,
+        donvitinh:this.txtdonvi,
+        gia:this.txtdongia,
+        mota:this.ckeditorContent,
+        hinhanh:result,
+        idloai:this.selectloai
+      }
+      console.log(JSON.stringify(result));
+      // this._api.create('/api/monan/Create_mon_an',formdata).subscribe(res=>{
+      //   if(res==true){
+      //     this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Thêm món ăn thành công'});
+      //   }
+      //   else{
+      //     this.messageService.add({severity:'error', summary: 'Thất bại', detail: 'Thêm món ăn thất bại'});
+      //   }
+      // });
     }
     if(this.protocol=="edit"){
       this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Sửa món ăn thành công'});

@@ -54,6 +54,21 @@ export class ApiServices {
             })
         )
     }
+    GetJsonAsync(url:any,id:any,pageSize:any,pageIndex:any,order:any){
+        let cloneHeader: any = {};
+        cloneHeader['Content-Type'] = 'application/json';
+        const headerOptions = new HttpHeaders(cloneHeader);
+        return this._http.get<any>(this.base_host + url +"?id="+id+"&&pageSize="+pageSize+"&&pageIndex="+pageIndex+"&&order="+order,{headers: headerOptions}).pipe(
+            map((res:any)=>{
+                let json = res;
+                return json;
+            })
+        ).pipe(
+            catchError((err:Response)=>{
+                return this.handleError(err);
+            })
+        )
+    }
     create(url:any,object:any){
         let cloneHeader : any = {};
         cloneHeader['Content-Type'] = 'application/json';

@@ -13,9 +13,15 @@ export class DetailproductComponent extends baseComponent implements OnInit{
     super(ij)
   }
   id:number;
+  item:any;
   ngOnInit(): void {
     this._route.params.subscribe(params=>{
       this.id = params["id"];
+      this._route.params.subscribe(params=>{
+        this._api.get_all("").subscribe(res=>{
+          this.item =res;
+        })
+      })
       setTimeout(()=>{
         this.loadScripts();
       });

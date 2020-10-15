@@ -1,18 +1,84 @@
-import { Component, OnInit } from '@angular/core';
+import { Inject } from '@angular/compiler/src/core';
+import { Component, OnInit, Injector } from '@angular/core';
+import { RouteConfigLoadEnd } from '@angular/router';
+import { baseComponent } from 'src/app/user/lib/base-component';
 
 @Component({
   selector: 'app-listproduct',
   templateUrl: './listproduct.component.html',
   styleUrls: ['./listproduct.component.css']
 })
-export class ListproductComponent implements OnInit {
+export class ListproductComponent extends baseComponent implements OnInit {
   grid = false;
-  constructor() { }
-
+  constructor(private injector: Injector) {
+    super(injector)
+   }
+  total = 0;
+  pageSize = 6;
+  pageIndex = 1;
+  order = 1;
+  id:any;
+  pageend = 0; 
+  changesize(value){
+    this.pageSize = value;
+    this._api.GetJsonAsync("api/monan/get_mon_an_by_idlm",this.id,this.pageSize,this.pageIndex,this.order).subscribe(res=>{
+      this.item = res.monans;
+      this.total = res.total;
+      this.pageend = Number((this.total/this.pageSize).toFixed());
+    })
+  }
+  changeorder(value){
+    this.order = value;
+    this._api.GetJsonAsync("api/monan/get_mon_an_by_idlm",this.id,this.pageSize,this.pageIndex,this.order).subscribe(res=>{
+      this.item = res.monans;
+      this.total = res.total;
+      this.pageend = Number((this.total/this.pageSize).toFixed());
+    })
+  }
+  item:any;
   ngOnInit(): void {
+    this._route.params.subscribe(params=>{
+      this.id = params["id"];
+      this._api.GetJsonAsync("api/monan/get_mon_an_by_idlm",this.id,this.pageSize,this.pageIndex,this.order).subscribe(res=>{
+        this.item = res.monans;
+        this.total = res.total;
+        this.pageend = Number((this.total/this.pageSize).toFixed());
+      })
+    })
   }
   changegrid(){
     this.grid = !this.grid;
     console.log(this.grid);
+  }
+  createRange(n){
+    var ds = [];
+    for(var i = 1; i<=n;i++){
+      ds.push(i);
+    }
+    return ds;
+  }
+  clickpagination(index){
+    this.pageIndex= index;
+    this._api.GetJsonAsync("api/monan/get_mon_an_by_idlm",this.id,this.pageSize,this.pageIndex,this.order).subscribe(res=>{
+      this.item = res.monans;
+      this.total = res.total;
+      this.pageend = Number((this.total/this.pageSize).toFixed());
+    })
+  }
+  clickpaginationprev(){
+    this.pageIndex = this.pageIndex - 1 < 1 ? 1 :  this.pageIndex - 1;
+    this._api.GetJsonAsync("api/monan/get_mon_an_by_idlm",this.id,this.pageSize,this.pageIndex,this.order).subscribe(res=>{
+      this.item = res.monans;
+      this.total = res.total;
+      this.pageend = Number((this.total/this.pageSize).toFixed());
+    })
+  }
+  clickpaginationnext(){
+    this.pageIndex= this.pageIndex + 1 > this.pageend ? this.pageend :  this.pageIndex + 1 ;
+    this._api.GetJsonAsync("api/monan/get_mon_an_by_idlm",this.id,this.pageSize,this.pageIndex,this.order).subscribe(res=>{
+      this.item = res.monans;
+      this.total = res.total;
+      this.pageend = Number((this.total/this.pageSize).toFixed());
+    })
   }
 }
