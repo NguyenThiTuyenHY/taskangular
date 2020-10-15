@@ -18,14 +18,13 @@ export class DetailproductComponent extends baseComponent implements OnInit{
     this._route.params.subscribe(params=>{
       this.id = params["id"];
       this._route.params.subscribe(params=>{
-        this._api.get_all("").subscribe(res=>{
+        this._api.get_all("api/monan/get_mon_an_by_id/"+this.id).subscribe(res=>{
           this.item =res;
         })
       })
       setTimeout(()=>{
         this.loadScripts();
       });
-      console.log(this.id);
     });  
   }
 }
