@@ -2,8 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartproductComponent } from './cartproduct/cartproduct.component';
 import { CheckcartComponent } from './checkcart/checkcart.component';
-import {Routes,RouterModule, Router} from "@angular/router";
+import {Routes,RouterModule} from "@angular/router";
 const cartroutes: Routes =[
+  {
+    path:"",
+    component: CartproductComponent
+  },
   {
     path:"sanpham",
     component: CartproductComponent
@@ -18,7 +22,8 @@ const cartroutes: Routes =[
   declarations: [CartproductComponent, CheckcartComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(cartroutes)
+    RouterModule.forChild(cartroutes),
+    RouterModule
   ]
 })
 export class CartModule { }

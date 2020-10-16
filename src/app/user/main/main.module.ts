@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Injector, RendererFactory2 , AfterContentInit} from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import {ShareModule} from "../share/share.module";
@@ -12,6 +12,7 @@ import { CommonuserModule } from '../commonuser/commonuser.module';
 import { ProductnewComponent } from './home/productnew/productnew.component';
 import { ProductbestComponent } from './home/productbest/productbest.component';
 import { ErrorComponent } from '../commonuser/error/error.component';
+
 const mainroutes : Routes = [
   {
     path:"",

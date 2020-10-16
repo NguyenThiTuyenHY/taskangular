@@ -1,3 +1,4 @@
+<!-- <p-toast></p-toast> -->
 <div class="main-container shop-page right-sidebar">
     <div class="container">
         <div class="row">
@@ -39,6 +40,9 @@
                                 <option value="6" selected="selected">
                                     Hiển thị 06
                                 </option>
+                                <option value="9">
+                                    Hiển thị 09
+                                </option>
                                 <option value="12">
                                     Hiển thị 12
                                 </option>
@@ -79,7 +83,7 @@
                                         <div class="group-button">
                                             <div class="group-button-inner">
                                                 <div class="add-to-cart">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm giỏ hàng</a></div>
+                                                    <a href="javascript:void(0)" (click)="addcart(it)" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm giỏ hàng</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -101,7 +105,7 @@
                                             <div class="group-button">
                                                 <a href="#" class="button yith-wcqv-button" [routerLink]="['/sanpham',it.id]">Xem chi tiết</a>
                                                 <div class="add-to-cart">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">Thêm giỏ hàng</a>
+                                                    <a href="javascript:void(0)" (click)="addcart(it)" class="button product_type_simple add_to_cart_button">Thêm giỏ hàng</a>
                                                 </div>
                                             </div>
                                         </div>

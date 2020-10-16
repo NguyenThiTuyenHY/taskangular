@@ -2,15 +2,16 @@ import { Inject } from '@angular/compiler/src/core';
 import { Component, OnInit, Injector } from '@angular/core';
 import { RouteConfigLoadEnd } from '@angular/router';
 import { baseComponent } from 'src/app/user/lib/base-component';
-
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-listproduct',
   templateUrl: './listproduct.component.html',
-  styleUrls: ['./listproduct.component.css']
+  styleUrls: ['./listproduct.component.css'],
+  providers:[MessageService]
 })
 export class ListproductComponent extends baseComponent implements OnInit {
   grid = false;
-  constructor(private injector: Injector) {
+  constructor(private injector: Injector,private messageService: MessageService) {
     super(injector)
    }
   total = 0;
@@ -80,5 +81,9 @@ export class ListproductComponent extends baseComponent implements OnInit {
       this.total = res.total;
       this.pageend = Number((this.total/this.pageSize).toFixed());
     })
+  }
+  addcart(item){
+    this._cart.addCart(item);
+    alert("Thêm thành công");
   }
 }

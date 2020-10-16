@@ -14,17 +14,29 @@ export class DetailproductComponent extends baseComponent implements OnInit{
   }
   id:number;
   item:any;
+  loaimon:any;
+  soluong:number;
   ngOnInit(): void {
     this._route.params.subscribe(params=>{
       this.id = params["id"];
-      this._route.params.subscribe(params=>{
-        this._api.get_all("api/monan/get_mon_an_by_id/"+this.id).subscribe(res=>{
-          this.item =res;
+      this._api.get_all("api/monan/"+this.id).subscribe(res=>{
+        this.item =res;
+        // console.log(res);
+        this._api.get_all("api/loaimon/"+res.idloaimon).subscribe(ress=>{
+          this.loaimon = ress;
+          console.log(ress);
         })
       })
       setTimeout(()=>{
         this.loadScripts();
       });
     });  
+  }
+  addcart(item){
+    this._cart.addCartSL(item,this.soluong);
+    alert("Thêm thành công");
+  }
+  changequantity(sl){
+    this.soluong = sl;
   }
 }

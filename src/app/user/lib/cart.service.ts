@@ -1,5 +1,4 @@
-import { from } from 'rxjs';
-import {Component, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 @Injectable({
     providedIn: 'root',
@@ -14,4 +13,88 @@ export class CartService{
         }
         this.itemsSubjet.next(local_storage);
     }
+    new_cart:cart;
+    addCart(item){
+        item.soluong = 1;
+        let local_storage:any;
+        if(localStorage.getItem('cart') == null){
+            local_storage = [item];
+        }
+        else{
+            local_storage = JSON.parse(localStorage.getItem('cart'));
+            let ok = true;
+            for(let x of local_storage){
+                if(x.id  == item.id){
+                    x.soluong = x.soluong + 1;
+                    ok = false;
+                }
+            }
+            if(ok == true){
+                local_storage.push(item);
+            }
+        }
+        localStorage.setItem('cart',JSON.stringify(local_storage));
+        this.itemsSubjet.next(local_storage);
+    }
+    addCartSL(item,quantity){
+        item.soluong = quantity;
+        let local_storage:any;
+        if(localStorage.getItem('cart') == null){
+            local_storage = [item];
+        }
+        else{
+            local_storage = JSON.parse(localStorage.getItem('cart'));
+            let ok = true;
+            for(let x of local_storage){
+                if(x.id  == item.id){
+                    x.soluong = x.soluong + quantity;
+                    ok = false;
+                }
+            }
+            if(ok == true){
+                local_storage.push(item);
+            }
+        }
+        localStorage.setItem('cart',JSON.stringify(local_storage));
+        this.itemsSubjet.next(local_storage);
+    }
+    deleteItem(id){
+        let local_storage = JSON.parse(localStorage.getItem('cart'));
+        local_storage = local_storage.filter(x=>x.id != id);
+        localStorage.setItem('cart',JSON.stringify(local_storage));
+        this.itemsSubjet.next(local_storage);
+    }
+    addQty(id, soluong){
+        let local_storage = JSON.parse(localStorage.getItem('cart'));
+        local_storage.filter(x=>x.id == id).soluong = soluong;
+        localStorage.setItem('cart',JSON.stringify(local_storage));
+        this.itemsSubjet.next(local_storage);
+    }
+    getallitem(){
+        let local_storage = JSON.parse(localStorage.getItem('cart'));
+        return local_storage;
+    }
+    totalproduce(){
+        let local_storage = JSON.parse(localStorage.getItem('cart'));
+        return local_storage.length;
+    }
+    totalprice(){
+        let local_storage = JSON.parse(localStorage.getItem('cart'));
+        var total = 0;
+        for(let x of local_storage){
+            total = total + x.soluong * x.gia;
+        }
+        return total;
+    }
+    clearCart(){
+        localStorage.setItem('cart','');
+        this.itemsSubjet.next(null);
+    }
+}
+interface cart
+{
+    id : number;
+    hinhanh: string;
+    soluong: number;
+    gia: number;
 }

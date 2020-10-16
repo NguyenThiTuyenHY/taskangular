@@ -1,7 +1,8 @@
 <div class="banner-wrapper no_background">
     <div class="banner-wrapper-inner">
-        <nav class="kobolg-breadcrumb container"><a href="#" [routerLink]="['/trangchu']">Trang chủ</a><i class="fa fa-angle-right"></i><a href="#">Shop</a>
-            <i class="fa fa-angle-right"></i>{{item.tensp}}
+        <nav class="kobolg-breadcrumb container"><a href="#" [routerLink]="['/trangchu']">Trang chủ</a><i class="fa fa-angle-right"></i>
+            <a href="#" [routerLink]="['/loaimon',loaimon.id]">{{loaimon.tenloai}}</a>
+            <i class="fa fa-angle-right"></i>{{item.tenmon}}
         </nav>
     </div>
 </div>
@@ -49,70 +50,26 @@
                                 <div class="flash">
                                     <span class="onnew"><span class="text">New</span></span>
                                 </div>
-                                <h1 class="product_title entry-title">T-shirt with skirt</h1>
+                                <h1 class="product_title entry-title">{{item.tenmon}}</h1>
                                 <p class="price"><span class="kobolg-Price-amount amount"><span
                                         class="kobolg-Price-currencySymbol"></span>{{item.gia | currency: "VND":false }}</span>
                                 </p>
-                                <p class="stock in-stock">
-                                    Availability: <span> In stock</span>
-                                </p>
-                                <div class="kobolg-product-details__short-description">
-                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
-                                    <ul>
-                                        <li>Water-resistant fabric with soft lycra detailing inside</li>
-                                        <li>CLean zip-front, and three piece hood</li>
-                                        <li>Subtle branding and diagonal panel detail</li>
-                                    </ul>
-                                </div>
                                 <form class="variations_form cart">
-                                    <table class="variations">
-                                        <tbody>
-                                            <tr>
-                                                <td class="label"><label>Color</label></td>
-                                                <td class="value">
-                                                    <select title="box_style" data-attributetype="box_style" data-id="pa_color" class="attribute-select " name="attribute_pa_color" data-attribute_name="attribute_pa_color" data-show_option_none="yes">
-                                                    <option data-type="" data-pa_color="" value="">Choose an option
-                                                    </option>
-                                                    <option data-width="30" data-height="30" data-type="color"
-                                                            data-pa_color="#3155e2" value="blue"
-                                                            class="attached enabled">Blue
-                                                    </option>
-                                                    <option data-width="30" data-height="30" data-type="color"
-                                                            data-pa_color="#ff63cb" value="pink"
-                                                            class="attached enabled">Pink
-                                                    </option>
-                                                    <option data-width="30" data-height="30" data-type="color"
-                                                            data-pa_color="#db2b00" value="red"
-                                                            class="attached enabled">Red
-                                                    </option>
-                                                    <option data-width="30" data-height="30" data-type="color"
-                                                            data-pa_color="#e8e120" value="yellow"
-                                                            class="attached enabled">Yellow
-                                                    </option>
-                                                </select>
-                                                    <div class="data-val attribute-pa_color" data-attributetype="box_style">
-                                                        <a class="change-value color" href="#" style="background: #3155e2;" data-value="blue"></a>
-                                                        <a class="change-value color" href="#" style="background: #ff63cb;" data-value="pink"></a>
-                                                        <a class="change-value color" href="#" style="background: #db2b00;" data-value="red"></a>
-                                                        <a class="change-value color" href="#" style="background: #e8e120;" data-value="yellow"></a>
-                                                    </div>
-                                                    <a class="reset_variations" href="#" style="visibility: hidden;">Clear</a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                     <div class="single_variation_wrap">
                                         <div class="kobolg-variation single_variation"></div>
                                         <div class="kobolg-variation-add-to-cart variations_button">
-                                            <div class="quantity">
-                                                <span class="qty-label">Quantiy:</span>
-                                                <div class="control">
-                                                    <a class="btn-number qtyminus quantity-minus" href="#">-</a>
-                                                    <input type="text" data-step="1" min="0" max="" name="quantity[25]" value="0" title="Qty" class="input-qty input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric">
-                                                    <a class="btn-number qtyplus quantity-plus" href="#">+</a>
+                                            <div>
+                                                <span class="qty-label">Số lượng:</span>
+                                                <div>
+                                                    <!-- <a class="btn-number qtyminus quantity-minus" (click)="changequantity(soluong.value)" href="#">-</a>
+                                                    <input type="text" #soluong data-step="1" min="1" max="" name="quantity[25]" value="1" title="Qty" class="input-qty input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric">
+                                                    <a class="btn-number qtyplus quantity-plus" (click)="changequantity(soluong.value)" href="#">+</a> -->
+                                                    <input #soluong (change)="changequantity(soluong.value)" value="1" type="number" min="1" max="10">
                                                 </div>
                                             </div>
-                                            <button type="submit" class="single_add_to_cart_button button alt kobolg-variation-selection-needed">
-                                                Add to cart
+                                            <br><br>
+                                            <button type="button" (click)="addcart(item)" class="single_add_to_cart_button button alt kobolg-variation-selection-needed">
+                                                Thêm vào giỏ hàng
                                             </button>
                                             <input name="add-to-cart" value="27" type="hidden">
                                             <input name="product_id" value="27" type="hidden">
@@ -120,39 +77,9 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div class="yith-wcwl-add-to-wishlist">
-                                    <div class="yith-wcwl-add-button show">
-                                        <a href="#" rel="nofollow" data-product-id="27" data-product-type="variable" class="add_to_wishlist">
-                                            Add to Wishlist</a>
-                                    </div>
-                                </div>
                                 <div class="clear"></div>
-                                <a href="#" class="compare button" data-product_id="27" rel="nofollow">Compare</a>
-                                <div class="product_meta">
-                                    <div class="wcml-dropdown product wcml_currency_switcher">
-                                        <ul>
-                                            <li class="wcml-cs-active-currency">
-                                                <a class="wcml-cs-item-toggle">USD</a>
-                                                <ul class="wcml-cs-submenu">
-                                                    <li>
-                                                        <a>EUR</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <span class="sku_wrapper">SKU: <span class="sku">885B712</span></span>
-                                    <span class="posted_in">Categories: <a
-                                            href="#"
-                                            rel="tag">Game & Consoles</a>, <a
-                                            href="#" rel="tag">New arrivals</a>, <a
-                                            href="#" rel="tag">Summer Sale</a></span>
-                                    <span class="tagged_as">Tags: <a href="#"
-                                                                     rel="tag">Game & Consoles</a>, <a
-                                            href="#" rel="tag">Sock</a></span>
-                                </div>
                                 <div class="kobolg-share-socials">
-                                    <h5 class="social-heading">Share: </h5>
+                                    <h5 class="social-heading">Chia sẻ: </h5>
                                     <a target="_blank" class="facebook" href="#">
                                         <i class="fa fa-facebook-f"></i>
                                     </a>
