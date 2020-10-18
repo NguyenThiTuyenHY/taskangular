@@ -1,6 +1,7 @@
 import { Inject } from '@angular/compiler/src/core';
 import { Component, OnInit, Injector } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { baseComponent } from '../../lib/base-component';
 
 @Component({
@@ -9,8 +10,9 @@ import { baseComponent } from '../../lib/base-component';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent extends baseComponent implements OnInit {
-
-  constructor(private injector: Injector) {
+  private itemsSearch = new BehaviorSubject<any[]>([]);
+  items = this.itemsSearch.asObservable();
+  constructor(private injector: Injector,private _rou: Router) {
     super(injector)
    }
   item: any;
@@ -24,6 +26,9 @@ export class HeaderComponent extends baseComponent implements OnInit {
         })
       })
     })
+  }
+  search(txtsearch,selectsearch){
+    this._rou.navigate(['/timkiem',txtsearch,selectsearch]);
   }
 
 }

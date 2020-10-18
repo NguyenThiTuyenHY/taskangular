@@ -45,20 +45,20 @@
                             <form role="search" method="get" class="form-search block-search-form kobolg-live-search-form">
                                 <div class="form-content search-box results-search">
                                     <div class="inner">
-                                        <input autocomplete="off" class="searchfield txt-livesearch input" name="s" value="" placeholder="Tìm kiếm tại đây ..." type="text">
+                                        <input autocomplete="off" #txtsearch class="searchfield txt-livesearch input" name="s" value="" placeholder="Tìm kiếm tại đây ..." type="text">
                                     </div>
                                 </div>
                                 <input name="post_type" value="product" type="hidden">
                                 <input name="taxonomy" value="product_cat" type="hidden">
                                 <div class="category">
-                                    <select title="product_cat" name="product_cat" id="1771262470" class="category-search-option" tabindex="-1" style="display: none;">
+                                    <select title="product_cat" #selectsearch name="product_cat" id="1771262470" class="category-search-option" tabindex="-1" style="display: none;">
                                         <option value="0">Tất cả</option>
                                         <ng-container *ngFor="let it of item">
-                                            <option class="level-0" value="{{it.id}}">{{it.tenloai}}</option>
+                                            <option value="{{it.id}}">{{it.tenloai}}</option>
                                         </ng-container>                                       
                                     </select>
                                 </div>
-                                <button type="submit" class="btn-submit">
+                                <button type="button" (click)="search(txtsearch.value,selectsearch.value)" class="btn-submit">
                                     <span class="flaticon-search"></span>
                                 </button>
                             </form>

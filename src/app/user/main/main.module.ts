@@ -12,6 +12,7 @@ import { CommonuserModule } from '../commonuser/commonuser.module';
 import { ProductnewComponent } from './home/productnew/productnew.component';
 import { ProductbestComponent } from './home/productbest/productbest.component';
 import { ErrorComponent } from '../commonuser/error/error.component';
+import { SearchComponent } from './search/search.component';
 
 const mainroutes : Routes = [
   {
@@ -41,6 +42,10 @@ const mainroutes : Routes = [
       {
         path:"tintuc",
         loadChildren:()=>import("./blog/blog.module").then((m)=>m.BlogModule)
+      },
+      {
+        path:"timkiem/:txtsearch/:loai",
+        component: SearchComponent
       }
     ]
   },
@@ -58,7 +63,7 @@ const mainroutes : Routes = [
   }
 ] 
 @NgModule({
-  declarations: [HomeComponent, ProductnewComponent, ProductbestComponent],
+  declarations: [HomeComponent, ProductnewComponent, ProductbestComponent, SearchComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(mainroutes),
