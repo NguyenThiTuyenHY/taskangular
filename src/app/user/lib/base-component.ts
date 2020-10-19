@@ -3,7 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiServices } from './api.component';
 import { CartService } from './cart.service';
-import { SearchService } from './search.service';
+import { LoginService } from './search.service';
 @NgModule({
     declarations: [],
     imports: [],
@@ -21,7 +21,7 @@ export class baseComponent{
         this._route = injector.get(ActivatedRoute);
         this._api = injector.get(ApiServices);
         this._cart = injector.get(CartService);
-        this._search = injector.get(SearchService);
+        this._search = injector.get(LoginService);
     }
     public loadScripts() {
         this.renderExternalScript('assets/js/bootstrap.min.js').onload = ()=>{}

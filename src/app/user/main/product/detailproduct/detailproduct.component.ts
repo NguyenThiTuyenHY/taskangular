@@ -12,10 +12,12 @@ export class DetailproductComponent extends baseComponent implements OnInit{
   constructor(private ij : Injector) { 
     super(ij)
   }
+  tag = true;
   id:number;
   item:any;
   loaimon:any;
   soluong:number;
+  itemlienquan:any;
   ngOnInit(): void {
     this._route.params.subscribe(params=>{
       this.id = params["id"];
@@ -24,8 +26,10 @@ export class DetailproductComponent extends baseComponent implements OnInit{
         // console.log(res);
         this._api.get_all("api/loaimon/"+res.idloaimon).subscribe(ress=>{
           this.loaimon = ress;
-          console.log(ress);
-        })
+          this._api.get_all("api/monan/get_mon_an_lien_he?id="+this.id+"&&idloai="+this.loaimon.id).subscribe(ress=>{
+            this.itemlienquan =ress;
+          })
+        })       
       })
       setTimeout(()=>{
         this.loadScripts();

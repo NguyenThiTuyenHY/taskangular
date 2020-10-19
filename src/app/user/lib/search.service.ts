@@ -4,22 +4,18 @@ import {Router} from '@angular/router';
 @Injectable({
     providedIn: 'root',
 })
-export class SearchService{
-    private itemsSeach = new BehaviorSubject<any>([]);
-    items = this.itemsSeach.asObservable();
+export class LoginService{
     value:searchvalue;
     constructor(private _rou:Router){}
     ngOnInit():void{
-        this.value.search = null;
-        this.value.idloai = 0;
+        
     }
-    
-    addsearch(txtsearch, idloai){
-        alert("vo r");
-        this.value.search = null;
-        this.value.idloai = 0;
-        this.itemsSeach.next(this.value);
-        this._rou.navigate(["/timkiem"]);
+    addsearch(txtuser, idpass, url){
+        let local = JSON.parse(localStorage.getItem('login'));
+        if(local == null){
+            local = [];
+        }
+        this._rou.navigateByUrl(url);
     }
 }
 interface searchvalue{

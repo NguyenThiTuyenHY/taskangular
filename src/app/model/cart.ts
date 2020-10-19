@@ -1,4 +1,4 @@
-interface cart
+export interface cart
 {
     masp : number;
     hinhanh: string;

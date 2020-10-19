@@ -85,6 +85,7 @@ export class SearchComponent extends baseComponent implements OnInit {
     })
   }
   search(txtsearch){
+    this.id = 0;
     this._rou.navigate(['/timkiem',txtsearch,this.id]);
   }
   addcart(item){

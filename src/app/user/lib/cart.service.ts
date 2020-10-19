@@ -88,7 +88,8 @@ export class CartService{
     }
     clearCart(){
         localStorage.setItem('cart','');
-        this.itemsSubjet.next(null);
+        let local_storage = JSON.parse(localStorage.getItem('cart'));
+        this.itemsSubjet.next(local_storage);
     }
 }
 interface cart
