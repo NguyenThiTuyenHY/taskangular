@@ -23,6 +23,19 @@ export class ApiServices {
             })
         )
     }
+    edit(url:string,obj:any){
+        let cloneHeader : any = {};
+        cloneHeader['content-type'] = 'application/json';
+        const headerOptions = new HttpHeaders(cloneHeader);
+        return this._http.put(this.base_host+url,obj,{headers: headerOptions}).pipe(map(res=>{
+            let json = res;
+            return json;
+        })).pipe(
+            catchError((err:Response)=>{
+                return this.handleError(err);
+            })
+        )
+    }
     get_all(url:any){
         let cloneHeader: any = {};
         cloneHeader['Content-Type'] = 'application/json';

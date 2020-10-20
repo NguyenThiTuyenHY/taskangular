@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -54,12 +55,15 @@
                         <tr>
                             <td>{{item.id}}</td>
                             <td>{{item.soghe}}</td>
-                            <td>{{item.tinhtrang}}</td>
+                            <td>
+                                <button *ngIf="item.tinhtrang==0" (click)="changestate(item.id,0)" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-success"></button>
+                                <button *ngIf="item.tinhtrang==1" (click)="changestate(item.id,1)" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger"></button>
+                            </td>
                             <td>{{item.makh}}</td>
                             <td>
                                 <span class="p-buttonset">
-                                    <button pButton icon="pi pi-external-link" (click)= "showDialogdisplayedit()" pRipple styleClass="p-button-sm"></button>
-                                    <button pButton pRipple class="p-button-warning" icon="pi pi-trash" styleClass="p-button-sm"></button>
+                                    <button *ngIf="item.tinhtrang==1" pButton icon="pi pi-external-link" (click)= "showDialogdisplayedit(item.id)" pRipple styleClass="p-button-sm"></button>
+                                    <button pButton pRipple class="p-button-warning" (click)= "delete(item.id)" icon="pi pi-trash" styleClass="p-button-sm"></button>
                                     <button pButton pRipple class="p-button-secondary" icon="pi pi-refresh" styleClass="p-button-sm"></button>
                                 </span>
                             </td>
@@ -81,22 +85,24 @@
         Thôg tin bàn ăn
     </p-header>
     <span class="p-float-label">
-        <input id="float-input" type="text" pInputText [style]="{width: '25vw'}"> 
+        <input id="float-input" #sogheinsert type="text" pInputText [style]="{width: '25vw'}"> 
         <label for="float-input">Số ghế</label>
     </span>
     <p-footer>
-        <button pButton pRipple label="Lưu" type="button" icon="pi pi-check" class="p-button-rounded p-button-text"></button>
+        <button (click)="insert(sogheinsert.value)" pButton pRipple label="Lưu" type="button" icon="pi pi-check" class="p-button-rounded p-button-text"></button>
+        <button (click)="reset_form()" pButton pRipple label="Đặt lại" type="button" icon="pi pi-refresh" class="p-button-rounded p-button-text"></button>
     </p-footer>
 </p-dialog>
 <p-dialog [(visible)]="displayedit" styleClass="mydialog" [style]="{width: '30vw'}">
     <p-header>
         Thôg tin bàn ăn
     </p-header>
+    <br>
     <span class="p-float-label">
-        <input id="float-input" type="text" pInputText [style]="{width: '25vw'}"> 
-        <label for="float-input">Mã khách hàng</label>
+        <input id="float-inputma" [(ngModel)]="makhedit" type="text" pInputText [style]="{width: '25vw'}">  
+        <label for="float-inputma">Mã khách hàng</label>
     </span>
     <p-footer>
-        <button pButton pRipple label="Lưu" type="button" icon="pi pi-check" class="p-button-rounded p-button-text"></button>
+        <button (click)="update()" pButton pRipple label="Lưu" type="button" icon="pi pi-check" class="p-button-rounded p-button-text"></button>
     </p-footer>
 </p-dialog>
