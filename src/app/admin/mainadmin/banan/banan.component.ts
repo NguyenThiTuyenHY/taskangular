@@ -79,7 +79,7 @@ export class BananComponent extends baseadmincomponent implements OnInit {
   insert(sogheinsert){
     var ba:banan;
     alert(sogheinsert);
-    this._client.post("https://localhost:44327/api/banan/create",{"soghe": sogheinsert}).subscribe(res=>{
+    this._client.post("https://localhost:44327/api/banan/create",{"soghe": sogheinsert,"tinhtrang":0,"makh":""}).subscribe(res=>{
       if(res==true){
         this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Thêm thành công'});
         this._api.get_all('api/banan/get_all_banan').subscribe(res =>{

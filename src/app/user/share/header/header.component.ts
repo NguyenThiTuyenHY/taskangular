@@ -16,19 +16,43 @@ export class HeaderComponent extends baseComponent implements OnInit {
     super(injector)
    }
   item: any;
+  itemuser: any;
+  total:any;
+  totalprice:any;
+  itemcar:any;
   ngOnInit(): void {
     this._route.params.subscribe(params=>{
       this._api.get_all("api/loaimon/get_all_loai_mon").subscribe(res=>{
         this.item = res;
-        console.log(this.item);
         setTimeout(()=>{
           this.loadScripts();
         })
       })
+      this.itemuser = JSON.parse(localStorage.getItem("userlogin"));
+    })
+    this._cart.items.subscribe(res=>{
+      this.itemcar = res;
+      console.log(res);
+      this.total = this._cart.totalproduce();
+      this.totalprice = this._cart.totalprice();
+      console.log(this.totalprice);
     })
   }
-  search(txtsearch,selectsearch){
-    this._rou.navigate(['/timkiem',txtsearch,selectsearch]);
+  deleteitem(mamon){
+    this._cart.deleteItem(mamon);
+    alert("Xoá thành công");
   }
-
+  search(txtsearch,selectsearch){
+    this._rou.navigate(['/timkiem',txtsearch,selectsearch]);    
+  }
+  dangnhap(){
+    var url = this._rou.url;
+    localStorage.setItem("url",url);
+    this._rou.navigate(["/dangnhap"]);
+  }
+  dangxuat(){
+    var url = this._rou.url;
+    localStorage.removeItem("userlogin");
+    window.location.reload();
+  }
 }

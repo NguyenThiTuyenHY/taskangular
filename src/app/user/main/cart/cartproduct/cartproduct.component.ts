@@ -17,6 +17,7 @@ export class CartproductComponent extends baseComponent implements OnInit {
   ngOnInit(): void {
     this._cart.items.subscribe(res=>{
       this.item = res;
+      console.log(res);
       this.total = this._cart.totalproduce();
       this.totalprice = this._cart.totalprice();
     })
@@ -28,5 +29,9 @@ export class CartproductComponent extends baseComponent implements OnInit {
   clearcart(){
     this._cart.clearCart();
     alert("Xoá thành công");
+  }
+  changequantiti(id,soluong){
+    this._cart.addQty(id, soluong);
+    alert("Sửa số lượng thành công");
   }
 }

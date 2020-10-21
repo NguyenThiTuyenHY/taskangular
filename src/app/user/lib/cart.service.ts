@@ -66,7 +66,11 @@ export class CartService{
     }
     addQty(id, soluong){
         let local_storage = JSON.parse(localStorage.getItem('cart'));
-        local_storage.filter(x=>x.id == id).soluong = soluong;
+        for(let x of local_storage){
+            if(x.id == id){
+                x.soluong = soluong;
+            }
+        }
         localStorage.setItem('cart',JSON.stringify(local_storage));
         this.itemsSubjet.next(local_storage);
     }

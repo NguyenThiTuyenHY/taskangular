@@ -18,7 +18,7 @@
                 <div class="page-main-content">
                     <div class="kobolg">
                         <div class="kobolg-notices-wrapper"></div>
-                        <form class="kobolg-cart-form">
+                        <div class="kobolg-cart-form">
                             <table class="shop_table shop_table_responsive cart kobolg-cart-form__contents" cellspacing="0">
                                 <thead>
                                     <tr>
@@ -49,9 +49,7 @@
                                                 <div class="quantity">
                                                     <span class="qty-label">Số lượng:</span>
                                                     <div class="control">
-                                                        <a class="btn-number qtyminus quantity-minus" href="#">-</a>
-                                                        <input type="text" value="1" title="Qty" class="input-qty input-text qty text">
-                                                        <a class="btn-number qtyplus quantity-plus" href="#">+</a>
+                                                        <input type="text" value="{{sp.soluong}}" #soluong (change)="changequantiti(sp.id,soluong.value)" title="Qty" class="input-qty input-text qty text">
                                                     </div>
                                                 </div>
                                             </td>
@@ -63,7 +61,7 @@
                                     </ng-container>
                                 </tbody>
                             </table>
-                        </form>
+                        </div>
                         <div class="cart-collaterals">
                             <div class="cart_totals ">
                                 <h2>Giỏ hàng</h2>

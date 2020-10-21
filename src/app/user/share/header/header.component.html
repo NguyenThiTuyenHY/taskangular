@@ -10,7 +10,7 @@
                     <ul class="wpml-menu">
                         <li class="menu-item">
                             <div class="wcml-dropdown product wcml_currency_switcher">
-                                <a href="#" [routerLink]="['/dangnhap']">Đăng nhập</a>
+                                <a href="javascript:void(0)" (click)="dangnhap()">Đăng nhập</a>
                             </div>
                         </li>
                         <li>/</li>
@@ -70,79 +70,63 @@
                     <div class="header-control-inner">
                         <div class="meta-dreaming">
                             <div class="menu-item block-user block-dreaming kobolg-dropdown">
-                                <a class="block-link" href="my-account.html">
-                                    <span class="flaticon-profile"></span>
+                                <a class="block-link" href="javascript:void(0)">
+                                    <span *ngIf="itemuser==null" class="flaticon-profile"></span>
+                                    <span *ngIf="itemuser!=null"><img style="border-radius: 25px; border: black 1px solid;" src="../../../../assets/images/user/{{itemuser.hinhanh}}"></span>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li class="menu-item kobolg-MyAccount-navigation-link kobolg-MyAccount-navigation-link--dashboard is-active">
-                                        <a href="#">Dashboard</a>
-                                    </li>
-                                    <li class="menu-item kobolg-MyAccount-navigation-link kobolg-MyAccount-navigation-link--orders">
-                                        <a href="#">Orders</a>
-                                    </li>
-                                    <li class="menu-item kobolg-MyAccount-navigation-link kobolg-MyAccount-navigation-link--downloads">
-                                        <a href="#">Downloads</a>
-                                    </li>
-                                    <li class="menu-item kobolg-MyAccount-navigation-link kobolg-MyAccount-navigation-link--edit-addresses">
-                                        <a href="#">Addresses</a>
-                                    </li>
-                                    <li class="menu-item kobolg-MyAccount-navigation-link kobolg-MyAccount-navigation-link--edit-account">
-                                        <a href="#">Account details</a>
-                                    </li>
-                                    <li class="menu-item kobolg-MyAccount-navigation-link kobolg-MyAccount-navigation-link--customer-logout">
-                                        <a href="#">Logout</a>
-                                    </li>
+                                    <ng-container *ngIf="itemuser!=null">
+                                        <li class="menu-item kobolg-MyAccount-navigation-link kobolg-MyAccount-navigation-link--dashboard is-active">
+                                            <a href="#">Thông tin tài khoản</a>
+                                        </li>
+                                        <li class="menu-item kobolg-MyAccount-navigation-link kobolg-MyAccount-navigation-link--orders">
+                                            <a href="#">Theo dõi đon hàng</a>
+                                        </li>
+                                        <li class="menu-item kobolg-MyAccount-navigation-link kobolg-MyAccount-navigation-link--orders">
+                                            <a href="#">Thay đổi mật khẩu</a>
+                                        </li>
+                                        <li class="menu-item kobolg-MyAccount-navigation-link kobolg-MyAccount-navigation-link--customer-logout">
+                                            <a href="javascript:void(0)" (click)="dangxuat()">Đăng xuất</a>
+                                        </li>
+                                    </ng-container>
+                                    <ng-container *ngIf="itemuser==null">
+                                        <li class="menu-item kobolg-MyAccount-navigation-link kobolg-MyAccount-navigation-link--dashboard is-active">
+                                            <a href="javascript:void(0)">Xin chào người lạ</a>
+                                        </li>
+                                    </ng-container>
                                 </ul>
                             </div>
                             <div class="block-minicart block-dreaming kobolg-mini-cart kobolg-dropdown">
                                 <div class="shopcart-dropdown block-cart-link" data-kobolg="kobolg-dropdown">
                                     <a class="block-link link-dropdown" href="cart.html">
                                         <span class="flaticon-online-shopping-cart"></span>
-                                        <span class="count">3</span>
+                                        <span class="count">{{total}}</span>
                                     </a>
                                 </div>
                                 <div class="widget kobolg widget_shopping_cart">
                                     <div class="widget_shopping_cart_content">
-                                        <h3 class="minicart-title">Giỏ hàng<span class="minicart-number-items">3</span>
+                                        <h3 class="minicart-title">Giỏ hàng<span class="minicart-number-items">{{total}}</span>
                                         </h3>
                                         <ul class="kobolg-mini-cart cart_list product_list_widget">
-                                            <li class="kobolg-mini-cart-item mini_cart_item">
-                                                <a href="#" class="remove remove_from_cart_button">×</a>
-                                                <a href="#">
-                                                    <img src="assets/images/apro134-1-600x778.jpg" class="attachment-kobolg_thumbnail size-kobolg_thumbnail" alt="img" width="600" height="778">T-shirt with skirt – Pink&nbsp;
-                                                </a>
-                                                <span class="quantity">1 × <span
-                                                        class="kobolg-Price-amount amount"><span
-                                                        class="kobolg-Price-currencySymbol">$</span>150.00</span>
-                                                </span>
-                                            </li>
-                                            <li class="kobolg-mini-cart-item mini_cart_item">
-                                                <a href="#" class="remove remove_from_cart_button">×</a>
-                                                <a href="#">
-                                                    <img src="assets/images/apro1113-600x778.jpg" class="attachment-kobolg_thumbnail size-kobolg_thumbnail" alt="img" width="600" height="778">Red Consoles&nbsp;
-                                                </a>
-                                                <span class="quantity">1 × <span
-                                                        class="kobolg-Price-amount amount"><span
-                                                        class="kobolg-Price-currencySymbol">$</span>129.00</span>
-                                                </span>
-                                            </li>
-                                            <li class="kobolg-mini-cart-item mini_cart_item">
-                                                <a href="#" class="remove remove_from_cart_button">×</a>
-                                                <a href="#">
-                                                    <img src="assets/images/apro201-1-600x778.jpg" class="attachment-kobolg_thumbnail size-kobolg_thumbnail" alt="img" width="600" height="778">Smart Monitor&nbsp;
-                                                </a>
-                                                <span class="quantity">1 × <span
-                                                        class="kobolg-Price-amount amount"><span
-                                                        class="kobolg-Price-currencySymbol">$</span>139.00</span>
-                                                </span>
-                                            </li>
+                                            <ng-container *ngFor="let sp of itemcar">
+                                                <li class="kobolg-mini-cart-item mini_cart_item">
+                                                    <a href="javascript:void(0)" (click)="deleteitem(sp.id)" class="remove remove_from_cart_button">×</a>
+                                                    <a href="#">
+                                                        <img src="../../../../assets/images/product/{{sp.hinhanh}}" class="attachment-kobolg_thumbnail size-kobolg_thumbnail" alt="img" width="600" height="778">{{sp.tenmon}}&nbsp;
+                                                    </a>
+                                                    <span class="quantity">{{sp.soluong}} × <span
+                                                            class="kobolg-Price-amount amount"><span
+                                                            class="kobolg-Price-currencySymbol"></span>{{sp.gia.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span>
+                                                    </span>
+                                                </li>
+                                            </ng-container>
                                         </ul>
                                         <p class="kobolg-mini-cart__total total"><strong>Tổng tiền:</strong>
                                             <span class="kobolg-Price-amount amount"><span
-                                                    class="kobolg-Price-currencySymbol">$</span>418.00</span>
+                                                    class="kobolg-Price-currencySymbol"></span>{{totalprice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span>
                                         </p>
                                         <p class="kobolg-mini-cart__buttons buttons">
-                                            <a href="#" [routerLink]="['/giohang/sanpham']" class="button kobolg-forward">Giỏ hàng</a>
+                                            <a href="#" [routerLink]="['/giohang']" class="button kobolg-forward">Giỏ hàng</a>
                                             <a href="#" [routerLink]="['/giohang/dathang']" class="button checkout kobolg-forward">Đặt hàng</a>
                                         </p>
                                     </div>

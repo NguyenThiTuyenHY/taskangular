@@ -42,9 +42,6 @@
                                             <div>
                                                 <span class="qty-label">Số lượng:</span>
                                                 <div>
-                                                    <!-- <a class="btn-number qtyminus quantity-minus" (click)="changequantity(soluong.value)" href="#">-</a>
-                                                    <input type="text" #soluong data-step="1" min="1" max="" name="quantity[25]" value="1" title="Qty" class="input-qty input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric">
-                                                    <a class="btn-number qtyplus quantity-plus" (click)="changequantity(soluong.value)" href="#">+</a> -->
                                                     <input #soluong (change)="changequantity(soluong.value)" value="1" type="number" min="1" max="10">
                                                 </div>
                                             </div>
@@ -85,30 +82,7 @@
                         </ul>
                         <div *ngIf="tag" class="kobolg-Tabs-panel kobolg-Tabs-panel--description panel entry-content kobolg-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
                             <h2>Mô tả</h2>
-                            <div class="container-table">
-                                <div class="container-cell">
-                                    <h2 class="az_custom_heading">Platea viverra aenean<br>dictumst</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit scelerisque integer, quam dapibus per risus donec semper vulputate interdum, imperdiet mus rhoncus commodo ultricies class urna tincidunt. Imperdiet vitae lacus
-                                        etiam metus ut nisl curae, conubia enim scelerisque quis facilisis torquent, ultricies orci faucibus dictumst mauris curabitur. Massa risus nec sociosqu fames montes accumsan iaculis justo turpis luctus
-                                    </p>
-                                </div>
-                                <div class="container-cell">
-                                    <div class="az_single_image-wrapper az_box_border_grey">
-                                        <img src="assets/images/single-pro1.jpg" class="az_single_image-img attachment-full" alt="img"></div>
-                                </div>
-                            </div>
-                            <div class="container-table">
-                                <div class="container-cell">
-                                    <div class="az_single_image-wrapper az_box_border_grey">
-                                        <img src="assets/images/single-pro2.jpg" class="az_single_image-img attachment-full" alt="img"></div>
-                                </div>
-                                <div class="container-cell">
-                                    <h2 class="az_custom_heading">
-                                        Potenti praesent molestie<br> at viverra</h2>
-                                    <p>This generator uses a dictionary of Latin words to construct passages of Lorem Ipsum text that meet your desired length. The sentence and paragraph durations and punctuation dispersal are calculated using Gaussian distribution,
-                                        based on statistical analysis of real world texts. This ensures that the generated Lorem Ipsum text is unique, free of repetition and also resembles readable text as much as possible.</p>
-                                </div>
-                            </div>
+                            <div>{{item.mota}}</div>
                         </div>
                         <div *ngIf="!tag" class="kobolg-Tabs-panel kobolg-Tabs-panel--reviews panel entry-content kobolg-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
                             <div id="reviews" class="kobolg-Reviews">

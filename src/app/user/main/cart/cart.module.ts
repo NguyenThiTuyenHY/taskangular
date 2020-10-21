@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CartproductComponent } from './cartproduct/cartproduct.component';
 import { CheckcartComponent } from './checkcart/checkcart.component';
 import {Routes,RouterModule} from "@angular/router";
+import {ReactiveFormsModule} from '@angular/forms';
 const cartroutes: Routes =[
   {
     path:"",
@@ -23,7 +24,8 @@ const cartroutes: Routes =[
   imports: [
     CommonModule,
     RouterModule.forChild(cartroutes),
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class CartModule { }
