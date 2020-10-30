@@ -1,6 +1,11 @@
 export interface user{
-    username: string;
-    passwork:string;
-    hinhanh: string;
-    hoten: string;
+    int:number;
+    hoten:string;
+    ngaysinh:string;
+    sdt:string;
+    diachi:string;
+    email:string;
+    password:string;
+    chucvu:string;
+    hinhanh:string;
 }

@@ -91,7 +91,7 @@ export class CartService{
         return total;
     }
     clearCart(){
-        localStorage.setItem('cart','');
+        localStorage.removeItem('cart');
         let local_storage = JSON.parse(localStorage.getItem('cart'));
         this.itemsSubjet.next(local_storage);
     }

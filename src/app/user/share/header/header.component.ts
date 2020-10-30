@@ -17,8 +17,8 @@ export class HeaderComponent extends baseComponent implements OnInit {
    }
   item: any;
   itemuser: any;
-  total:any;
-  totalprice:any;
+  total:any=0;
+  totalprice:any=0;
   itemcar:any;
   ngOnInit(): void {
     this._route.params.subscribe(params=>{

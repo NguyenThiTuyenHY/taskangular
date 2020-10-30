@@ -37,28 +37,26 @@ export class baseadmincomponent{
         this._renderer.appendChild(document.body, script);
         return script;
     }
-    public getencodeFromImage(fileupload: FileUpload){
-        if(fileupload){
-            if(fileupload == null || fileupload){
-                return observableOf('');
-            }
-            let file: File = fileupload.files[0];
-            console.log(file);   
-            let reader: FileReader = new FileReader();
-            reader.readAsDataURL(file);
-            fromEvent(reader,'load').pipe(
-                map((e)=>{
-                    let result = '';
-                    let tmp: any = reader.result;
-                    let baseCode = tmp.substring(tmp.indexOf('base64,', 0) + 7)
-                    result = file.name + ';' + file.size + ';' + baseCode;
-                    console.log(file.name);
-                    return result;
-                })
-            )
-        }
+    public getEncodeFromImage(fileUpload: FileUpload) {
+        if (fileUpload) {
+          if (fileUpload.files == null || fileUpload.files.length == 0) {
+            return observableOf('');
+          }
+          let file: File = fileUpload.files[0];
+          let reader: FileReader = new FileReader();
+          reader.readAsDataURL(file);
+          return fromEvent(reader, 'load').pipe(
+            map((e) => {
+              let result = '';
+              let tmp: any = reader.result;
+              let baseCode = tmp.substring(tmp.indexOf('base64,', 0) + 7);
+              result = file.name + ';' + file.size + ';' + baseCode;
+              return result;
+            })
+          );
+        } 
         else {
-            return observableOf(null);
+          return observableOf(null);
         }
     }
     

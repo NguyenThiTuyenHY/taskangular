@@ -419,7 +419,7 @@
     </div>
 </div> -->
 <div class="container">
-    <h3 class="h3">Sản phẩm mới</h3>
+    <h3 class="h3">Sản phẩm nổi bật</h3>
     <div class="row">
         <ng-container *ngFor="let item of itemrate">
             <div class="col-md-3 col-sm-6">
@@ -433,7 +433,6 @@
                             <li><a href="#" [routerLink]="['/sanpham',item.id]" data-tip=" Xem chi tiết "><i class="fa fa-eye"></i></a></li>
                             <li><a href="javascript:void(0)" data-tip="Thêm giỏ hàng "><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
-                        <span class="product-new-label">New</span>
                     </div>
                     <div class="product-content">
                         <h3 class="title"><a href="#">{{item.tenmon}}</a></h3>

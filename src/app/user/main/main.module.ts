@@ -11,6 +11,7 @@ import { ProductnewComponent } from './home/productnew/productnew.component';
 import { ProductbestComponent } from './home/productbest/productbest.component';
 import { ErrorComponent } from '../commonuser/error/error.component';
 import { SearchComponent } from './search/search.component';
+import { AuthGuard } from 'src/app/admin/lib/auth.guard';
 
 const mainroutes : Routes = [
   {

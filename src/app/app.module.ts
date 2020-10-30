@@ -7,6 +7,7 @@ import {ShareModule} from './user/share/share.module';
 import {AccordionModule} from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
+import { ErrorComponent } from './admin/commonadmin/error/error.component';
 const approute: Routes = [
   {
     path: '',
@@ -20,7 +21,8 @@ const approute: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,32 +1,26 @@
-<div class="form-box" id="login-box">
-    <div class="header">Sign In</div>
-    <form action="../../index.html" method="post">
-        <div class="body bg-gray">
-            <div class="form-group">
-                <input type="text" name="userid" class="form-control" placeholder="User ID"/>
+<div class="container">
+    <h1 class="form-heading">Đăng nhập</h1>
+    <div class="login-form">
+        <div class="main-div">
+            <div class="panel">
+                <h2>Quản lý nhà hàng</h2>
+                <p>Làm ơn nhập email và mật khẩu</p>
             </div>
-            <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="Password"/>
-            </div>          
-            <div class="form-group">
-                <input type="checkbox" name="remember_me"/> Remember me
-            </div>
-        </div>
-        <div class="footer">                                                               
-            <button type="submit" class="btn bg-olive btn-block">Sign me in</button>  
-            
-            <p><a href="#">I forgot my password</a></p>
-            
-            <a href="register.html" class="text-center">Register a new membership</a>
-        </div>
-    </form>
+            <form id="Login">
 
-    <div class="margin text-center">
-        <span>Sign in using social networks</span>
-        <br/>
-        <button class="btn bg-light-blue btn-circle"><i class="fa fa-facebook"></i></button>
-        <button class="btn bg-aqua btn-circle"><i class="fa fa-twitter"></i></button>
-        <button class="btn bg-red btn-circle"><i class="fa fa-google-plus"></i></button>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="inputEmail" #txtemail placeholder="Địa chỉ email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" #txtpassword id="inputPassword" placeholder="Mật khẩu">
+                </div>
+                <div class="forgot">
+                    <a href="javascript:void(0)">Quên mật khẩu?</a>
+                </div>
+                <button type="button" (click)="onlogin(txtemail.value, txtpassword.value)" class="btn btn-primary">Đăng nhập</button>
 
+            </form>
+        </div>
+        <p class="botto-text">Tks desiger</p>
     </div>
 </div>

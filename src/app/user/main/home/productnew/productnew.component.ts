@@ -14,7 +14,7 @@ export class ProductnewComponent extends baseComponent implements OnInit {
   itemnew:any;
   ngOnInit(): void {
     this._route.params.subscribe(params=>{
-      this._api.get_all("api/monan/get_mon_an_rate").subscribe(res=>{
+      this._api.get_all("api/monan/get_mon_an_new").subscribe(res=>{
         this.itemnew = res;
         setTimeout(()=>{
           this.loadScripts();

@@ -23,7 +23,7 @@ export class MonanComponent extends baseadmincomponent implements OnInit {
   txtdonvi:any;
   txtdongia: any;
   display = false;
-  uploadedFiles: any[] = [];
+  uploadedFiles: any;
   monanform = FormGroup;
   tenmon:any;
   protocol:string;
@@ -89,16 +89,14 @@ export class MonanComponent extends baseadmincomponent implements OnInit {
     console.log(this.uploadedFiles);
     // console.log(CKEDITOR.instances.content.getData());
     console.log(this.ckeditorContent);
-    var type = "image/*";
     if(this.protocol=="create"){
-      var result = '';
-      
+      var result = '';     
       let formdata ={
         tenmon:this.txttenmon,
         donvitinh:this.txtdonvi,
         gia:this.txtdongia,
         mota:this.ckeditorContent,
-        hinhanh:result,
+        hinhanh:this.getEncodeFromImage(this.uploadedFiles),
         idloai:this.selectloai
       }
       console.log(JSON.stringify(result));

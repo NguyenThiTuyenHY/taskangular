@@ -38,7 +38,7 @@
                             <td>
                                 <span class="p-buttonset">
                                     <button pButton icon="pi pi-external-link" data-toggle="modal" data-target="#exampleModal" (click)="showDialogedit(item.id)" pRipple styleClass="p-button-sm"></button>
-                                    <button pButton pRipple class="p-button-warning" icon="pi pi-trash" styleClass="p-button-sm"></button>
+                                    <button pButton pRipple class="p-button-warning" (click) = "deletebp(item.id)" icon="pi pi-trash" styleClass="p-button-sm"></button>
                                     <button pButton pRipple class="p-button-secondary" icon="pi pi-refresh" styleClass="p-button-sm"></button>
                                 </span>
                             </td>
@@ -67,12 +67,12 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="exampleInputPassword1">Tên bộ phận</label>
-                    <input type="text" [ngModel]="txtbophan" class="form-control" id="exampleInputPassword1">
+                    <input type="text" #tenbp [ngModel]="txtbophan" class="form-control" id="exampleInputPassword1">
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" (click)="insert()">Lưu</button>
+                <button type="button" class="btn btn-primary" (click)="insert(tenbp.value)">Lưu</button>
             </div>
         </div>
     </div>

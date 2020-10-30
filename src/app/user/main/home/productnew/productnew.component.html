@@ -250,7 +250,7 @@
 </div> -->
 
 <div class="container">
-    <h3 class="h3">Sản phẩm nổi bật </h3>
+    <h3 class="h3">Sản phẩm mới </h3>
     <div class="row">
         <ng-container *ngFor="let item of itemnew">
             <div class="col-md-3 col-sm-6">
@@ -265,6 +265,7 @@
                                 <a href="#" [routerLink]="['/sanpham',item.id]" data-tip=" Xem chi tiết "><i class="fa fa-eye "></i></a></li>
                             <li><a href="javascript:void(0)" data-tip="Thêm giỏ hàng "><i class="fa fa-shopping-cart "></i></a></li>
                         </ul>
+                        <span class="product-new-label">Mới</span>
                         <a class="add-to-cart " href=" ">Thêm giỏ hàng</a>
                     </div>
                     <div class="product-content ">
