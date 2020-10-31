@@ -74,14 +74,15 @@
     </span>
 
     <h5>Hình ảnh</h5>
-    <p-fileUpload name="demo[]" url="http://localhost:4200/admin/monan" customUpload="true" (uploadHandler)="onUploadFile($event)" accept="image/*" maxFileSize="1000000" chooseLabel="Chọn" uploadLabel="Tải lên" cancelLabel="Đặt lại">
+    <!-- <p-fileUpload name="demo[]" url="http://localhost:4200/admin/monan" customUpload="true" (uploadHandler)="onUploadFile($event)" multiple="multiple" accept="image/*" maxFileSize="1000000" chooseLabel="Chọn" uploadLabel="Tải lên" cancelLabel="Đặt lại">
         <ng-template pTemplate="content">
             <ul *ngIf="uploadedFiles.length">
                 <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
             </ul>
         </ng-template>
-    </p-fileUpload>
-
+    </p-fileUpload> -->
+    <input type="file" (change)="changeImga($event)">
+    <div id="imgTest" class="mt-3"></div>
     <span class="p-float-label">
                     <h5>Đơn vị tính</h5>
                     <input type="text" id="txtdonvi" name="txtdonvi" pInputText [(ngModel)]="txtdonvi" [style]="{width: '55vw'}" required maxlength="255"> 

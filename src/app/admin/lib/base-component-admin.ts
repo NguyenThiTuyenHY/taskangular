@@ -59,5 +59,15 @@ export class baseadmincomponent{
           return observableOf(null);
         }
     }
+    public encodeImageFileAsURL(element) {
+      var file = element[0];
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        return reader.result + ";"+ file.name;
+        
+      }
+      reader.readAsDataURL(file);
+      return observableOf(null);
+    }
     
 }
