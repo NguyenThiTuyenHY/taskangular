@@ -82,7 +82,7 @@
                         </ul>
                         <div *ngIf="tag" class="kobolg-Tabs-panel kobolg-Tabs-panel--description panel entry-content kobolg-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
                             <h2>Mô tả</h2>
-                            <div>{{item.mota}}</div>
+                            <div [innerHTML]="item.mota"></div>
                         </div>
                         <div *ngIf="!tag" class="kobolg-Tabs-panel kobolg-Tabs-panel--reviews panel entry-content kobolg-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
                             <div id="reviews" class="kobolg-Reviews">
@@ -148,7 +148,7 @@
                         <div class="col-sm-6 col-lg-3">
                             <div class="single-publication">
                                 <figure>
-                                    <a href="#"><img src="../../../../../assets/images/product/{{sp.hinhanh}}" alt="Publication Image"></a>
+                                    <a href="#"><img src="../../../../../assets/images/product/{{sp.hinhanh}}" style="height: 200px;" alt="Publication Image"></a>
 
                                     <ul>
                                         <li><a href="#" title="Thêm giỏ hàng"><i class="fa fa-heart"></i></a></li>

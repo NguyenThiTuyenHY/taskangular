@@ -17,7 +17,7 @@ export class MonanComponent extends baseadmincomponent implements OnInit {
     super(injector)
   }
   first = 0;
-  rows = 10;
+  rows = 5;
   item: any;
   ckeditorContent: any;
   txttenmon:any;
@@ -36,6 +36,9 @@ export class MonanComponent extends baseadmincomponent implements OnInit {
     this._route.params.subscribe(parmas=>{
       this._api.get_all("api/loaimon/get_all_loai_mon").subscribe(res=>{
         this.bophan = res;
+      })
+      this._api.get_all("api/monan/get_all_mon_an").subscribe(res=>{
+        this.item = res;
       })
     })
     CKEDITOR.on('instanceCreated', function (event, data) {
@@ -86,12 +89,6 @@ export class MonanComponent extends baseadmincomponent implements OnInit {
   //   this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Tải ảnh thành công'});
   // }
    luu(){
-    // console.log(this.txttenmon);
-    // console.log(this.txtdongia);
-    // console.log(this.txtdonvi);
-    // console.log(this.uploadedFiles[0]);
-    // console.log(CKEDITOR.instances.content.getData());
-    // console.log(this.ckeditorContent);
     console.log(this.file);
     this.getEncodeFromImage(this.file).subscribe((data: any): void => {
       this.base64 = data==null?"":data;
@@ -105,17 +102,13 @@ export class MonanComponent extends baseadmincomponent implements OnInit {
           idloaimon:parseInt(this.selectloai)
         }
         console.log(formdata);
-        this._api.create('api/monan/Create_mon_an',formdata).subscribe(res=>{
-          if(res==true){
-            this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Thêm món ăn thành công'});
-          }
-          else{
-            this.messageService.add({severity:'error', summary: 'Thất bại', detail: 'Thêm món ăn thất bại'});
-          }
-        });
         this.http.post('https://localhost:44327/api/monan/create_mon_an',formdata).subscribe(res=>{
+          this.display = false;
           if(res==true){
             this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Thêm món ăn thành công'});
+            this._api.get_all("api/monan/get_all_mon_an").subscribe(res=>{
+              this.item = res;
+            })
           }
           else{
             this.messageService.add({severity:'error', summary: 'Thất bại', detail: 'Thêm món ăn thất bại'});
