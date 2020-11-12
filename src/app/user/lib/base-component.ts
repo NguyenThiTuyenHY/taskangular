@@ -26,12 +26,7 @@ export class baseComponent{
         this._login = injector.get(LoginUserService);
     }
     public loadScripts() {
-        this.renderExternalScript('assets/js/bootstrap.min.js').onload = ()=>{}
-        this.renderExternalScript('assets/admin/vendor/fontawesome-free/css/all.min.css').onload = ()=>{}
         this.renderExternalScript('assets/js/functions.js').onload = () => {}
-        this.renderExternalScript('assets/js/slick.js').onload = () => {}
-        this.renderExternalScript('assets/js/threesixty.min.js').onload = () => {}
-        this.renderExternalScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyC3nDHy1dARR-Pa_2jjPCjvsOR4bcILYsM').onload = () => {}
       }
     public renderExternalScript(src: string): HTMLScriptElement {
         const script = document.createElement('script');

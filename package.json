@@ -27,6 +27,7 @@
         "primeng": "^10.0.2",
         "rxjs": "~6.6.0",
         "rxjs-compat": "^6.5.5",
+        "sweetalert2": "^10.10.0",
         "tslib": "^2.0.0",
         "zone.js": "~0.10.2"
     },

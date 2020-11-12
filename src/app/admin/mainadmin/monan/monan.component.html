@@ -45,7 +45,7 @@
                             <td>
                                 <span class="p-buttonset">
                                     <button pButton icon="pi pi-external-link" (click)= "showDialogedit(item.id)" pRipple styleClass="p-button-sm"></button>
-                                    <button pButton pRipple class="p-button-warning" icon="pi pi-trash" styleClass="p-button-sm"></button>
+                                    <button pButton pRipple class="p-button-warning" (click)="delete_mn(item.id)" icon="pi pi-trash" styleClass="p-button-sm"></button>
                                     <button pButton pRipple class="p-button-secondary" icon="pi pi-refresh" styleClass="p-button-sm"></button>
                                 </span>
                             </td>
@@ -69,7 +69,7 @@
     </p-header>
     <span class="p-float-label">
         <h5>Tên món</h5>
-        <input type="text" pInputText [(ngModel)]="txttenmon" [style]="{width: '55vw'}" required maxlength="255">
+        <input type="text" pInputText [(ngModel)]="txttenmon" [style]="{width: '55vw', color:'black'}" required maxlength="255">
     </span>
 
     <h5>Hình ảnh</h5>
@@ -84,20 +84,20 @@
     <div id="imgTest" class="mt-3"></div>
     <span class="p-float-label">
                     <h5>Đơn vị tính</h5>
-                    <input type="text" id="txtdonvi" name="txtdonvi" pInputText [(ngModel)]="txtdonvi" [style]="{width: '55vw'}" required maxlength="255"> 
+                    <input type="text" id="txtdonvi" name="txtdonvi" pInputText [(ngModel)]="txtdonvi" [style]="{width: '55vw', color:'black'}" required maxlength="255"> 
                 </span>
     <span class="p-float-label">
                     <h5>Đơn giá</h5>
-                    <input type="text" id="txtdongia" name="txtdongia" pInputText [(ngModel)]="txtdongia" [style]="{width: '55vw'}" required maxlength="255"> 
+                    <input type="text" id="txtdongia" name="txtdongia" pInputText [(ngModel)]="txtdongia" [style]="{width: '55vw' , color:'black'}" required maxlength="255"> 
                 </span>
     <span class="p-float-label"> 
                     <h5>Nội dung</h5>
-                    <ckeditor [(ngModel)]="ckeditorContent" [readonly]="false"></ckeditor>
+                    <ckeditor [(ngModel)]="ckeditorContent" [style]="{color:'black'}" [readonly]="false"></ckeditor>
                 </span>
     <span class="p-float-label" [(ngModel)]="selectloai"> 
                     <h5>Loại món ăn</h5>
                     <select>
-                        <option *ngFor="let bp of bophan" value="{{bp.id}}">{{bp.tenloai}}</option>
+                        <option *ngFor="let bp of bophan" [selected]="checklm==bp.id?true:false" [style]="{width: '55vw' , color:'black'}" value="{{bp.id}}">{{bp.tenloai}}</option>
                     </select>
                 </span>
     <p-footer>

@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form name="checkout" [formGroup]="myform" (ngSubmit)="checkout()" class="checkout kobolg-checkout" enctype="multipart/form-data">
+                        <form name="checkout" [formGroup]="myform" class="checkout kobolg-checkout" enctype="multipart/form-data">
                             <div class="col2-set" id="customer_details">
                                 <div class="col-1">
                                     <div class="kobolg-billing-fields">
@@ -57,7 +57,7 @@
                                                     <span class="optional"></span>
                                                 </label>
                                                 <span class="kobolg-input-wrapper">
-                                                    <input type="text" formGroupName="txtkhachhang" class="input-text "name="billing_company"id="billing_company" placeholder="" value=""autocomplete="organization">
+                                                    <input type="text" formGroupName="txtkhachhang" value="{{kh}}" #khachhang class="input-text "name="billing_company"id="billing_company" placeholder="" value=""autocomplete="organization">
                                                 </span>
                                                 <span *ngIf="submitted && myform.controls.txtkhachhang.errors" class="invalid-feedback">
                                                     <span *ngIf="myform.controls.txtkhachhang.errors.required">Tên khách hàng không để trống</span>
@@ -68,7 +68,7 @@
                                                     <abbr class="required" title="required">*</abbr>
                                                 </label>
                                                 <span class="kobolg-input-wrapper">
-                                                    <input type="text" formGroupName="txtdiachi" class="input-text "name="billing_addresses_1" id="billing_addresses_1" placeholder="Địa chỉ cụ thể" value="" autocomplete="addresses-line1" data-placeholder="House number and street name">
+                                                    <input type="text" formGroupName="txtdiachi" #diachi value="{{dc}}" class="input-text "name="billing_addresses_1" placeholder="Địa chỉ cụ thể" value="" autocomplete="addresses-line1" data-placeholder="House number and street name">
                                                 </span>
                                                 <span *ngIf="submitted && myform.controls.txtdiachi.errors" class="invalid-feedback">
                                                     <span *ngIf="myform.controls.txtdiachi.errors.required">Địa chỉ không để trống</span>
@@ -79,7 +79,7 @@
                                                     <abbr class="required" title="required">*</abbr>
                                                 </label>
                                                 <span class="kobolg-input-wrapper">
-                                                    <input type="tel" formGroupName = "txtsodienthoai" class="input-text " name="billing_phone"  id="billing_phone" placeholder="" value="" autocomplete="tel">
+                                                    <input type="text" formGroupName = "txtsodienthoai" value="{{sdt}}" #sodienthoai class="input-text " name="billing_phone"  id="billing_phone" placeholder="" value="" autocomplete="tel">
                                                 </span>
                                                 <span *ngIf="submitted && myform.controls.txtsodienthoai.errors" class="invalid-feedback">
                                                     <span *ngIf="myform.controls.txtsodienthoai.errors.required">Số điện thoại không để trống</span>
@@ -129,7 +129,7 @@
                                 <input type="hidden" name="lang" value="en">
                                 <div id="payment" class="kobolg-checkout-payment">
                                     <div class="form-row place-order">
-                                        <button type="submit" class="button alt" name="kobolg_checkout_place_order" id="place_order" value="Place order" data-value="Place order">Đặt hàng</button>
+                                        <button type="button" (click)="checkout(khachhang.value,diachi.value,sodienthoai.value, itemcart)" class="button alt" name="kobolg_checkout_place_order" id="place_order" value="Place order" data-value="Place order">Đặt hàng</button>
                                         <input type="hidden" id="kobolg-process-checkout-nonce" name="kobolg-process-checkout-nonce" value="634590c981"><input type="hidden" name="_wp_http_referer" value="/kobolg/?kobolg-ajax=update_order_review"></div>
                                 </div>
                             </div>

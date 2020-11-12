@@ -1,5 +1,6 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { baseComponent } from 'src/app/user/lib/base-component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cartproduct',
@@ -8,7 +9,7 @@ import { baseComponent } from 'src/app/user/lib/base-component';
 })
 export class CartproductComponent extends baseComponent implements OnInit {
 
-  constructor(private injector:Injector) { 
+  constructor(private injector:Injector, private active: Router) { 
     super(injector)
   }
   item: any;
@@ -29,6 +30,7 @@ export class CartproductComponent extends baseComponent implements OnInit {
   clearcart(){
     this._cart.clearCart();
     alert("Xoá thành công");
+    this.active.navigate(["/"]);
   }
   changequantiti(id,soluong){
     this._cart.addQty(id, soluong);

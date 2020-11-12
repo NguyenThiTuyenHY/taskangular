@@ -32,6 +32,13 @@
                                     <span class="onnew"><span class="text">New</span></span>
                                 </div>
                                 <h1 class="product_title entry-title">{{item.tenmon}}</h1>
+                                <p>
+                                    <span class="fa fa-star" [ngClass]="{'checked':avg>=1?true:false}"></span>
+                                    <span class="fa fa-star" [ngClass]="{'checked':avg>=2?true:false}"></span>
+                                    <span class="fa fa-star" [ngClass]="{'checked':avg>=3?true:false}"></span>
+                                    <span class="fa fa-star" [ngClass]="{'checked':avg>=4?true:false}"></span>
+                                    <span class="fa fa-star" [ngClass]="{'checked':avg>=5?true:false}"></span>
+                                </p>
                                 <p class="price"><span class="kobolg-Price-amount amount"><span
                                         class="kobolg-Price-currencySymbol"></span>{{item.gia.toLocaleString('vi', {style : 'currency', currency : 'VND'}) }}</span>
                                 </p>
@@ -74,43 +81,78 @@
                     <div class="kobolg-tabs kobolg-tabs-wrapper">
                         <ul class="tabs dreaming-tabs" role="tablist">
                             <li class="description_tab active" id="tab-title-description" role="tab" aria-controls="tab-description">
-                                <a href="#tab-description" (click)="tag=!tag">Chi tiết sản phẩm</a>
+                                <a href="#tab-description" (click)="tag=1">Chi tiết sản phẩm</a>
                             </li>
                             <li class="reviews_tab" id="tab-title-reviews" role="tab" aria-controls="tab-reviews">
-                                <a href="#tab-reviews" (click)="tag=!tag">Bình luận (0)</a>
+                                <a href="#tab-reviews" (click)="tag=2">Bình luận ({{binhluan.length==0?0:binhluan.length}})</a>
+                            </li>
+                            <li class="reviews_tab" id="tab-title-reviews" role="tab" aria-controls="tab-common">
+                                <a href="#tab-common" (click)="tag=3">Đánh giá</a>
                             </li>
                         </ul>
-                        <div *ngIf="tag" class="kobolg-Tabs-panel kobolg-Tabs-panel--description panel entry-content kobolg-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
+                        <div *ngIf="tag==1" class="kobolg-Tabs-panel kobolg-Tabs-panel--description panel entry-content kobolg-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
                             <h2>Mô tả</h2>
                             <div [innerHTML]="item.mota"></div>
                         </div>
-                        <div *ngIf="!tag" class="kobolg-Tabs-panel kobolg-Tabs-panel--reviews panel entry-content kobolg-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
+                        <div *ngIf="tag==2" class="kobolg-Tabs-panel kobolg-Tabs-panel--reviews panel entry-content kobolg-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
                             <div id="reviews" class="kobolg-Reviews">
                                 <div id="comments">
                                     <h2 class="kobolg-Reviews-title">Nhận xét</h2>
-                                    <p class="kobolg-noreviews">Hiện tại không có đánh giá nào.</p>
+                                    <p class="kobolg-noreviews" *ngIf="binhluan.length == 0">Hiện tại không có đánh giá nào.</p>
+                                    <ng-container class="kobolg-noreviews" *ngIf="binhluan.length != 0">
+                                        <div class="comments-container">
+                                            <ul id="comments-list" class="comments-list">
+                                                <li *ngFor="let bl of binhluan">
+                                                    <div class="comment-main-level">
+                                                        <!-- Avatar -->
+                                                        <div class="comment-avatar"><img src="../../../../../assets/images/user/{{bl.hinhanh}}" alt=""></div>
+                                                        <!-- Contenedor del Comentario -->
+                                                        <div class="comment-box">
+                                                            <div class="comment-head">
+                                                                <h6 class="comment-name"><a href="http://creaticode.com/blog">{{bl.hoten}}</a></h6>
+                                                                <span>{{bl.ngaybinhluan | date:'dd/MM/yyyy'}}</span>
+                                                                <!-- <i class="fa fa-reply"></i>
+                                                                <i class="fa fa-heart"></i> -->
+                                                                <i>
+                                                                    <span class="fa fa-star" [ngStyle]="{'color':bl.rate>=1?'orange':''}"></span>
+                                                                    <span class="fa fa-star" [ngStyle]="{'color':bl.rate>=2?'orange':''}"></span>
+                                                                    <span class="fa fa-star" [ngStyle]="{'color':bl.rate>=3?'orange':''}"></span>
+                                                                    <span class="fa fa-star" [ngStyle]="{'color':bl.rate>=4?'orange':''}"></span>
+                                                                    <span class="fa fa-star" [ngStyle]="{'color':bl.rate>=5?'orange':''}"></span>
+                                                                </i>
+                                                            </div>
+                                                            <div class="comment-content">
+                                                                {{bl.noidung}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </ng-container>
                                 </div>
-                                <div id="review_form_wrapper">
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div *ngIf="tag==3" class="kobolg-Tabs-panel kobolg-Tabs-panel--reviews panel entry-content kobolg-tab" id="tab-common" role="tabpanel" aria-labelledby="tab-title-reviews">
+                            <div id="reviews" class="kobolg-Reviews">
+                                <div *ngIf="user!=null?true:false" id="review_form_wrapper">
                                     <div id="review_form">
                                         <div id="respond" class="comment-respond">
-                                            <span id="reply-title" class="comment-reply-title">Hãy là người đầu tiên nhận xét “{{item.tenmon}}”</span>
+                                            <span id="reply-title" class="comment-reply-title" *ngIf="binhluan.length == 0">Hãy là người đầu tiên nhận xét “{{item.tenmon}}”</span>
                                             <form id="commentform" class="comment-form">
-                                                <p class="comment-notes"><span id="email-notes">Địa chỉ email của bạn sẽ không được xuất bản.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span></p>
                                                 <p class="comment-form-author">
-                                                    <label for="author">Name&nbsp;<span
-                                                            class="required">*</span></label>
-                                                    <input id="author" name="author" value="" size="30" required="" type="text"></p>
-                                                <p class="comment-form-email"><label for="email">Gmail&nbsp;
-                                                    <span class="required">*</span></label>
-                                                    <input id="email" name="email" value="" size="30" required="" type="email"></p>
+                                                    <img class="img-profile rounded-circle" src="../../../../assets/images/user/{{user.hinhanh}}" style="width: 40px; height: 40px; border: black .5px solid;">
+                                                    <span class="mr-2 d-none d-lg-inline"> &nbsp;&nbsp;{{user.hoten}}</span>
+                                                </p>
                                                 <div class="comment-form-rating"><label for="rating">Đánh giá</label>
                                                     <p class="stars">
                                                         <span>
-                                                        <a class="star-1" href="#">1</a>
-                                                        <a class="star-2" href="#">2</a>
-                                                        <a class="star-3" href="#">3</a>
-                                                        <a class="star-4" href="#">4</a>
-                                                        <a class="star-5" href="#">5</a>
+                                                        <a class="star-1" href="#" (click) ="star = 1">1</a>
+                                                        <a class="star-2" href="#" (click) ="star = 2">2</a>
+                                                        <a class="star-3" href="#" (click) ="star = 3">3</a>
+                                                        <a class="star-4" href="#" (click) ="star = 4">4</a>
+                                                        <a class="star-5" href="#" (click) ="star = 5">5</a>
                                                         </span>
                                                     </p>
                                                     <select title="product_cat" name="rating" id="rating" required="" style="display: none;">
@@ -121,9 +163,10 @@
                                                         <option value="2">Not that bad</option>
                                                         <option value="1">Very poor</option>
                                                     </select></div>
-                                                <p class="comment-form-comment"><label for="comment">Your
-                                                    Bình luận&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required=""></textarea></p><input name="wpml_language_code" value="en" type="hidden">
-                                                <p class="form-submit"><input name="submit" id="submit" class="submit" value="Submit" type="submit"> <input name="comment_post_ID" value="27" id="comment_post_ID" type="hidden">
+                                                <p class="comment-form-comment"><label for="comment">
+                                                    Bình luận của bạn&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required="" #txtbinhluan></textarea></p><input name="wpml_language_code" value="en"
+                                                    type="hidden">
+                                                <p class="form-submit"><input name="submit" id="submit" (click)="onbinhluan(txtbinhluan.value, item.id)" class="submit" value="Bình luận" type="submit"> <input name="comment_post_ID" value="27" id="comment_post_ID" type="hidden">
                                                     <input name="comment_parent" id="comment_parent" value="0" type="hidden">
                                                 </p>
                                             </form>
@@ -131,6 +174,7 @@
                                         <!-- #respond -->
                                     </div>
                                 </div>
+                                <div *ngIf="user!=null?false:true" class="text-center" id="review_form_wrapper">Bạn cần đăng nhập trươc khi đánh giá</div>
                                 <div class="clear"></div>
                             </div>
                         </div>

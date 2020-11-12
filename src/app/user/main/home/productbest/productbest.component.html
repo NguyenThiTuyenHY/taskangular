@@ -441,11 +441,11 @@
                             <!-- <span>$75.00</span> -->
                         </div>
                         <ul class="rating">
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star disable"></li>
-                            <li class="fa fa-star disable"></li>
+                            <li class="fa fa-star" [ngClass]="{'disable':item.rate>=1?false:true}"></li>
+                            <li class="fa fa-star" [ngClass]="{'disable':item.rate>=2?false:true}"></li>
+                            <li class="fa fa-star" [ngClass]="{'disable':item.rate>=3?false:true}"></li>
+                            <li class="fa fa-star" [ngClass]="{'disable':item.rate>=4?false:true}"></li>
+                            <li class="fa fa-star" [ngClass]="{'disable':item.rate>=5?false:true}"></li>
                         </ul>
                     </div>
                 </div>

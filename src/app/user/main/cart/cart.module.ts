@@ -4,6 +4,7 @@ import { CartproductComponent } from './cartproduct/cartproduct.component';
 import { CheckcartComponent } from './checkcart/checkcart.component';
 import {Routes,RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from '@angular/forms';
+import { FollowcartComponent } from './followcart/followcart.component';
 const cartroutes: Routes =[
   {
     path:"",
@@ -16,11 +17,15 @@ const cartroutes: Routes =[
   {
     path:"dathang",
     component: CheckcartComponent
+  },
+  {
+    path:"theodoidonhang",
+    component: FollowcartComponent
   }
 ]
 
 @NgModule({
-  declarations: [CartproductComponent, CheckcartComponent],
+  declarations: [CartproductComponent, CheckcartComponent, FollowcartComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(cartroutes),

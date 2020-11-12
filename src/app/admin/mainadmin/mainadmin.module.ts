@@ -30,6 +30,7 @@ import { CalamComponent } from './calam/calam.component';
 import { SliderComponent } from 'src/app/user/share/slider/slider.component';
 import { BinhluanComponent } from './binhluan/binhluan.component';
 import { AuthGuard } from '../lib/auth.guard';
+import { DonhangComponent } from './donhang/donhang.component';
 const Mainadminrouter: Routes = [
   {
     path: '',
@@ -90,6 +91,10 @@ const Mainadminrouter: Routes = [
       {
         path:'binhluan',
         component: BinhluanComponent
+      },
+      {
+        path:'donhang/:id',
+        component: DonhangComponent
       }
     ],
     canActivate: [AuthGuard],
@@ -101,7 +106,7 @@ const Mainadminrouter: Routes = [
 ]
 
 @NgModule({
-  declarations: [ThongkeComponent, MainadminComponent,BananComponent, BophanComponent, LoaimonComponent, MonanComponent, NhanvienComponent, TaikhoanComponent, PhieugoimonComponent,DangnhapComponent],
+  declarations: [ThongkeComponent, MainadminComponent,BananComponent, BophanComponent, LoaimonComponent, MonanComponent, NhanvienComponent, TaikhoanComponent, PhieugoimonComponent,DangnhapComponent, DonhangComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(Mainadminrouter),

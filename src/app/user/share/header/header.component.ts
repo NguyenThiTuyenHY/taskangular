@@ -29,14 +29,19 @@ export class HeaderComponent extends baseComponent implements OnInit {
         })
       })
       this.itemuser = JSON.parse(localStorage.getItem("userlogin"));
-    })
+    });
     this._cart.items.subscribe(res=>{
       this.itemcar = res;
       console.log(res);
-      this.total = this._cart.totalproduce();
-      this.totalprice = this._cart.totalprice();
+      // let local_storage = JSON.parse(localStorage.getItem('cart'));
+      // this.total = this._cart.totalproduce();
+      this.total = this.itemcar.length;
+      for(let x of this.itemcar){
+        this.totalprice = this.totalprice + x.soluong * x.gia;
+      }
+      // this.totalprice = this._cart.totalprice();
       console.log(this.totalprice);
-    })
+    });
   }
   deleteitem(mamon){
     this._cart.deleteItem(mamon);

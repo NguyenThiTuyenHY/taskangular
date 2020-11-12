@@ -47,7 +47,7 @@ export class CartService{
             let ok = true;
             for(let x of local_storage){
                 if(x.id  == item.id){
-                    x.soluong = x.soluong + quantity;
+                    x.soluong = parseInt(x.soluong) + parseInt(quantity);
                     ok = false;
                 }
             }
@@ -80,7 +80,10 @@ export class CartService{
     }
     totalproduce(){
         let local_storage = JSON.parse(localStorage.getItem('cart'));
-        return local_storage.length;
+        if(local_storage.length !=0){
+            return local_storage.length;
+        }
+       return 0;
     }
     totalprice(){
         let local_storage = JSON.parse(localStorage.getItem('cart'));
